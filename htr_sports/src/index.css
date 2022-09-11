@@ -1,4 +1,4 @@
-ul {
+/*ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -20,4 +20,80 @@ li a {
 
 li a:hover {
   background-color: #111;
+}
+*/
+
+body {
+  margin: 0;
+  /*
+  background: x;
+  font-family: 'Work Sans', sans-serif;
+  */
+  font-weight: 300;
+
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background: #28282B;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+}
+
+nav {
+  float: right;
+}
+
+nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{
+  display: inline-block;
+  margin-left: 25px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover{
+  color: #000000;
+}
+
+nav a::before{
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: white;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before{
+  width: 100%;
 }
