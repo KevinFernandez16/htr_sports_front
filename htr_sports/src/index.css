@@ -1,34 +1,6 @@
-/*ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-}
-*/
-
 body {
   margin: 0;
-  /*
-  background: x;
   font-family: 'Work Sans', sans-serif;
-  */
   font-weight: 300;
 
 }
@@ -65,8 +37,8 @@ nav ul{
 
 nav li{
   display: inline-block;
-  margin-left: 25px;
-  padding-top: 23px;
+  margin-left: 32px;
+  padding: 16px 0;
 
   position: relative;
 }
@@ -79,7 +51,7 @@ nav a{
 }
 
 nav a:hover{
-  color: #000000;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 nav a::before{
@@ -96,4 +68,30 @@ nav a::before{
 
 nav a:hover::before{
   width: 100%;
+}
+
+/* TODO: MOVE THIS SEPARATELY */
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* TODO: REMOVE THIS EXAMPLE */
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 64px;
 }
