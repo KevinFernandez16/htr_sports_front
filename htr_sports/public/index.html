@@ -40,12 +40,12 @@ Learn how to configure a non-root public URL by running `npm run build`.
     <li><a href="#search">Search</a></li>
   </ul>
 
-  <div class = "dropdown">
+  <div class = "dropdown" id = "signIn">
     <button class = "dropbtn">Create Account</button>
     <div class = "dropdown-content">
       <form>
-        <label for = "username">Username:</label>
-        <input type = "text" id = "username" name = "username"><br><br>
+        <label for = "email">Username:</label>
+        <input type = "text" id = "email" name = "email"><br><br>
         <label for = "password">Password:</label>
         <input type = "password" id = "password" name = "password"><br><br>
         <input type = "button" id = "insert" value = "Enter"> <!-- onclick = "createAccount()" -->
@@ -54,59 +54,165 @@ Learn how to configure a non-root public URL by running `npm run build`.
   </div>
 
   <h4>V 2.2</h4>
-<!--Disabled for Haley to use only
+  <!--Disabled for Haley to use only
 
-<div id = "Test">Bruh</div>
-<input type="button" value="click" onclick="displayAPI()"/>
+  <div id = "Test">Bruh</div>
+  <input type="button" value="click" onclick="displayAPI()"/>
 -->
 </body>
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
-  import {getDatabase, set, get, update, remove, ref, child} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut  } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBoF3DW_pIDocCRPlrqFpUfxdXtCT7lpFQ",
-    authDomain: "htr-sports.firebaseapp.com",
-    databaseURL: "https://htr-sports-default-rtdb.firebaseio.com",
-    projectId: "htr-sports",
-    storageBucket: "htr-sports.appspot.com",
-    messagingSenderId: "119767757957",
-    appId: "1:119767757957:web:d9f4cfeed391dc8bbde5ec",
-    measurementId: "G-WEB0Z72L02"
-  };
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBoF3DW_pIDocCRPlrqFpUfxdXtCT7lpFQ",
+  authDomain: "htr-sports.firebaseapp.com",
+  databaseURL: "https://htr-sports-default-rtdb.firebaseio.com",
+  projectId: "htr-sports",
+  storageBucket: "htr-sports.appspot.com",
+  messagingSenderId: "119767757957",
+  appId: "1:119767757957:web:d9f4cfeed391dc8bbde5ec",
+  measurementId: "G-WEB0Z72L02"
+};
 
-  const db = getDatabase();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-  var user = document.getElementById("username");
-  var password = document.getElementById("password");
-  var insertBTN = document.getElementById("insert");
+const db = getDatabase();
 
-  function CreateData(){
-    //alert("Clicked");
-    set(ref(db, "People/1"),{
-       User: user.value,
-       Password: password.value
-   })
-   .then(()=>{
-       alert("Data added successfully");
-   })
-   .catch((error)=>{
-       alert(error);
-   });
+const auth = getAuth(app)
+
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+var insertBTN = document.getElementById("insert");
+var signIn = document.getElementById("signIn")
+
+function createAccount(){
+  //alert("Clicked");
+  //const dbref = ref(db)
+  createUserWithEmailAndPassword(auth, email.value, password.value)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log("Just made an account!");
+
+    set(ref(db, 'Users/'+user.uid),{
+      DisplayName: "Anonymous",
+      Email: email.value,
+      Password: password.value
+      //Email: user.value,
+    })
+    .then(()=>{
+      console.log("Data created")
+    })
+    .catch((error)=>{
+      alert(error);
+    });
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    //alert(errorCode+" : "+errorMessage);
+    //console.log(errorCode+":"+errorMessage);
+    if (errorCode == "auth/email-already-in-use"){
+      console.log('in use');
+      signInWithEmailAndPassword(auth, email.value, password.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("Logged in to existing")
+          // ...
+        })
+        .catch((error) => {
+          const nerrorCode = error.code;
+          const nerrorMessage = error.message;
+          alert(nerrorCode+" : "+nerrorMessage);
+          console.log(nerrorCode+":"+nerrorMessage);
+        });
+    }
+    /*signInWithEmailAndPassword(auth, user.value, password.value)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("Logged in to existing")
+        // ...
+      })
+      .catch((error) => {
+        const nerrorCode = error.code;
+        const nerrorMessage = error.message;
+        alert(nerrorCode+" : "+nerrorMessage);
+        console.log(nerrorCode+":"+nerrorMessage);
+      });*/
+
+  });
+
+  /*get(child(dbref, "Users/" + user.value))
+  .then((snapshot)=>{
+    if(snapshot.exists()){
+      alert("Account already exist. Please choose another username")
+    }else{
+      createUserWithEmailAndPassword(auth, user.value, password.value)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("Signed in!");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode+":"+errorMessage);
+        // ..
+      });*/
+      /*set(ref(db, 'Users/'+user.value),{
+        DisplayName: user.value,
+        Password: password.value
+      })
+      .then(()=>{
+        alert("Account has been created successfully");
+      })
+      .catch((error)=>{
+        alert(error);
+      });
+    }
+  })
+  .catch((error)=>{
+    alert(error)
+  })*/
+}
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+    console.log("Signed in!!");
+    signIn.parentNode.removeChild(signIn)
+  } else {
+    console.log("Signed out!");
   }
+});
 
-  insertBTN.addEventListener('click',CreateData);
+signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+
+insertBTN.addEventListener('click',createAccount);
+
+window.addEventListener('unload',(event)=>{
+  auth.signOut();
+});
+
 </script>
 
 </html>
