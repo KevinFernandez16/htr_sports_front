@@ -2,7 +2,7 @@ body
 {
     margin: 0;
     padding: 0;
-
+    background:  #BCC6CC;
 }
 
 .sign-up-form
@@ -12,4 +12,7 @@ body
     padding: 20px;
     margin: 8% auto 0;
     text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
