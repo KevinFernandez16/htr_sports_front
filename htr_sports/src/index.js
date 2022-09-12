@@ -9,7 +9,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 //for database
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyBoF3DW_pIDocCRPlrqFpUfxdXtCT7lpFQ",
   authDomain: "htr-sports.firebaseapp.com",
@@ -27,6 +27,23 @@ const analytics = getAnalytics(app);
 
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
+
+function createAccount(){
+  console.log("Function ran");
+  /*const user = document.getElementById("username");
+  const password = document.getElementById("password");
+  const db = getDatabase().ref("users/");*/
+  /*set (ref(db,'users'),{
+    username: user,
+    password: password,
+  });*/
+  /*db.set({
+    Test:{
+      username: user,
+      password: password
+    }
+  });*/
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
