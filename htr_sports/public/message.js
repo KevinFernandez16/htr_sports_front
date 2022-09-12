@@ -15,7 +15,7 @@ function displayAPI(){
   		'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
   	}
   };
-  const data = fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures/statistics?fixture=215662&team=463', options)
+  fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures/statistics?fixture=215662&team=463', options)
   	.then(response => response.json())
   	.then(response => { //If data is retrieved then run displayteam
       console.log(response);
