@@ -39,11 +39,12 @@ Learn how to configure a non-root public URL by running `npm run build`.
     <li><a href="findgame.html">Find a Game</a></li>
     <li><a href="#search">Search</a></li>
   </ul>
-
+  <div id = "profilePicture"></div>
+  <div id = "uploadPhotoSpot"></div>
   <div class = "dropdown" id = "signIn">
     <button class = "dropbtn">Create Account</button>
     <div class = "dropdown-content">
-      <form>
+      <form autocomplete="off">
         <label for = "email">Username:</label>
         <input type = "text" id = "email" name = "email"><br><br>
         <label for = "password">Password:</label>
@@ -67,6 +68,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
 import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut  } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
+import { getStorage, ref as storageref, uploadBytes, getDownloadURL, deleteObject }  from "https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -96,6 +98,8 @@ var email = document.getElementById("email");
 var password = document.getElementById("password");
 var insertBTN = document.getElementById("insert");
 var signIn = document.getElementById("signIn")
+var profilePicture = document.getElementById("profilePicture")
+var uploadPhotoSpot = document.getElementById("uploadPhotoSpot")
 
 function createAccount(){
   //alert("Clicked");
@@ -109,7 +113,8 @@ function createAccount(){
     set(ref(db, 'Users/'+user.uid),{
       DisplayName: "Anonymous",
       Email: email.value,
-      Password: password.value
+      Password: password.value,
+      ProfilePicture: "None",
       //Email: user.value,
     })
     .then(()=>{
@@ -127,20 +132,6 @@ function createAccount(){
     if (errorCode == "auth/email-already-in-use"){
       console.log('in use');
       signInWithEmailAndPassword(auth, email.value, password.value)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log("Logged in to existing")
-          // ...
-        })
-        .catch((error) => {
-          const nerrorCode = error.code;
-          const nerrorMessage = error.message;
-          alert(nerrorCode+" : "+nerrorMessage);
-          console.log(nerrorCode+":"+nerrorMessage);
-        });
-    }
-    /*signInWithEmailAndPassword(auth, user.value, password.value)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -152,43 +143,90 @@ function createAccount(){
         const nerrorMessage = error.message;
         alert(nerrorCode+" : "+nerrorMessage);
         console.log(nerrorCode+":"+nerrorMessage);
-      });*/
-
-  });
-
-  /*get(child(dbref, "Users/" + user.value))
-  .then((snapshot)=>{
-    if(snapshot.exists()){
-      alert("Account already exist. Please choose another username")
-    }else{
-      createUserWithEmailAndPassword(auth, user.value, password.value)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log("Signed in!");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode+":"+errorMessage);
-        // ..
-      });*/
-      /*set(ref(db, 'Users/'+user.value),{
-        DisplayName: user.value,
-        Password: password.value
-      })
-      .then(()=>{
-        alert("Account has been created successfully");
-      })
-      .catch((error)=>{
-        alert(error);
       });
     }
-  })
-  .catch((error)=>{
-    alert(error)
-  })*/
+  });
+}
+
+function updateImage(){
+  const user = auth.currentUser;
+  if (user){
+    const dbref = ref(db)
+    get(child(dbref, "Users/" + user.uid))
+    .then((snapshot) => {
+      if(snapshot.exists()){
+        if (profilePicture.hasChildNodes()){
+          const image = document.getElementById("pfp");
+          image.setAttribute('src',snapshot.val().ProfilePicture);
+          if (snapshot.val().ProfilePicture == "None"){
+            image.parentNode.removeChild(image)
+          }
+        }else{
+          const image = document.createElement("img");
+          image.setAttribute('id','pfp');
+          image.setAttribute('alt','Your profile picture');
+          image.setAttribute('src',snapshot.val().ProfilePicture);
+          profilePicture.appendChild(image);
+          if (snapshot.val().ProfilePicture == "None"){
+            image.parentNode.removeChild(image)
+          }
+        }
+      }
+    })
+  }
+}
+
+function uploadImage(){
+  console.log("Test");
+  const user = auth.currentUser;
+  if (user){
+    const dbref = ref(db)
+    console.log(user.uid);
+    get(child(dbref, "Users/" + user.uid))
+    .then((snapshot)=>{
+      if(snapshot.exists()){
+        console.log("Found Data")
+        const file = document.getElementById("photo").files[0];
+        if (file == null){
+          const updates = {};
+          updates["Users/"+user.uid+"/ProfilePicture"] = "None";
+          update(dbref,updates);
+          updateImage();
+        }else{
+          const name = +new Date() + "-" + user.uid + "-" + file.name;
+          const storage = getStorage();
+          const sref = storageref(storage, name);
+          console.log(snapshot.val().ProfilePicture);
+          getDownloadURL(storageref(storage,snapshot.val().ProfilePicture))
+          .then((url) => {
+            deleteObject(storageref(storage,snapshot.val().ProfilePicture))
+            .then(() => {
+              console.log("Old profile picture deleted");
+            })
+            .catch((error) => {
+              console.log("Error occured deleting");
+            });
+          })
+          .catch(console.error);
+
+          const metadata = {
+            contentType: file.type
+          };
+          const uploadTask = uploadBytes(sref, file, metadata);
+          uploadTask
+          .then(snapshot => getDownloadURL(snapshot.ref))
+          .then(url => {
+            console.log(url);
+            const updates = {};
+            updates["Users/"+user.uid+"/ProfilePicture"] = url;
+            update(dbref,updates);
+            updateImage();
+          })
+          .catch(console.error);
+        }
+      }
+    })
+  }
 }
 
 onAuthStateChanged(auth, (user) => {
@@ -196,6 +234,17 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     console.log("Signed in!!");
     signIn.parentNode.removeChild(signIn)
+    const image_input = document.createElement("input");
+    image_input.setAttribute('type','file');
+    image_input.setAttribute('id','photo');
+    image_input.setAttribute("accept","png")
+    image_input.innerHTML = "Upload Image";
+    const image_submit = document.createElement("button");
+    image_submit.innerHTML = "Submit Image";
+    image_submit.onclick = uploadImage;
+    uploadPhotoSpot.appendChild(image_input);
+    uploadPhotoSpot.appendChild(image_submit);
+    updateImage();
   } else {
     console.log("Signed out!");
   }
