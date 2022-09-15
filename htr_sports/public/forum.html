@@ -1,31 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>HTR Sports Forum</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width. initial-scale=1.0">
+  <title>HTR Forum</title>
+  <!-- insert icon 1 refernce here -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1><center>Welcome!</center></h1>
-<center><div class = "dropdown">
-    <div class = "dropdown-content">
-      <form>
-        <label for = "title">Title:</label>
-        <input type = "text" id = "title" name = "title"><br><br>
-        <label for = "body">Body:</label>
-        <input type = "text" id = "body" name = "body"><br><br>
-        <input type = "button" id = "insert" value = "Enter"> <!-- onclick = "createAccount()" -->
-      </form>
-    </div>
-  </div></center>
+  <ul>
+    <li><a href="index.html">Hunter Sports</a></li>
+    <li><a href="soccer.html">Soccer</a></li>
+    <li><a href="basketball.html">Basketball</a></li>
+    <li><a href="fantasy.html">Fantasy</a></li>
+    <li><a href="forum.html">Forum</a></li>
+    <li><a href="findgame.html">Find a Game</a></li>
+  </ul>
+   <div class = "container">
+      <div class = "subforum">
+<!--Post Begin-->
+<div class = "subforum">
+<hr class = "subforum_devider">
+<div class = "subforum_title subforum_column">
+    <h1><a>News</a></h1>
+</div>
+<div class = "subforum_row">
+    <div class = "subforum_icon">
+        <i class = "icon_1"></i>
+  </div>
+   <div class = "subforum_description subforum_column">
+     <h1><a href = "posts.html">Barcelona</a></h1>
+      <p>Description goes here....</p>
+</div>
+<div class = "subforum_stats subforum_column center">
+<span>0 Posts | 0 Topics</span>
+</div>
+<div class = "subforum_information subforum_column">
+<b><a href = "">Last Post</a></b> by <a href = ""> User1
+<br>
+on <small>13 Sep 2022</small>
+</div>
+</div>
+
+<div class = "subforum_row">
+    <div class = "subforum_icon">
+        <i class = "icon_1"></i>
+  </div>
+   <div class = "subforum_description subforum_column">
+     <h1><a href = "">Bayern Munich</a></h1>
+      <p>Description goes here....</p>
+</div>
+<div class = "subforum_stats subforum_column center">
+<span>0 Posts | 0 Topics</span>
+</div>
+<div class = "subforum_information subforum_column">
+<b><a href = "">Last Post</a></b> by <a href = ""> User1
+<br>
+on <small>13 Sep 2022</small>
+</div>
+</div>
+<!-- Post End-->
+
+
+
+
+<!--Post Begin-->
+<hr class = "subforum_devider">
+<div class = "subforum_title subforum_column">
+    <h1><a> UEFA Champions League Talk</a></h1>
+</div>
+<div class = "subforum_row">
+    <div class = "subforum_icon">
+        <i class = "icon_1"></i>
+  </div>
+   <div class = "subforum_description subforum_column">
+     <h1><a href = "">Barcelona vs Bayern</a></h1>
+      <p>Description goes here....</p>
+</div>
+<div class = "subforum_stats subforum_column center">
+<span>0 Posts | 0 Topics</span>
+</div>
+<div class = "subforum_information subforum_column">
+<b><a href = "">Last Post</a></b> by <a href = ""> User1
+<br>
+on <small>13 Sep 2022</small>
+</div>
+</div>
+
+<div class = "subforum_row">
+    <div class = "subforum_icon">
+        <i class = "icon_1"></i>
+  </div>
+   <div class = "subforum_description subforum_column">
+     <h1><a href = "">Atletico vs Leverkusen</a></h1>
+      <p>Description goes here....</p>
+</div>
+<div class = "subforum_stats subforum_column center">
+<span>0 Posts | 0 Topics</span>
+</div>
+<div class = "subforum_information subforum_column">
+<b><a href = "">Last Post</a></b> by <a href = ""> User1
+<br>
+on <small>13 Sep 2022</small>
+</div>
+</div>
+
+<div class = "subforum_row">
+    <div class = "subforum_icon">
+        <i class = "icon_1"></i>
+  </div>
+   <div class = "subforum_description subforum_column">
+     <h1><a href = "">Man City vs Dortmund</a></h1>
+      <p>Description goes here....</p>
+</div>
+<div class = "subforum_stats subforum_column center">
+<span>0 Posts | 0 Topics</span>
+</div>
+<div class = "subforum_information subforum_column">
+<b><a href = "">Last Post</a></b> by <a href = ""> User1
+<br>
+on <small>13 Sep 2022</small>
+</div>
+</div>
+<!-- Post End-->
+
+
 </body>
+<!-- CSS -->
+<style>
+/* global */
+*{
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+
+html{
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+.container{
+  margin: 10px;
+  padding: 20px;
+}
+.subforum_row{
+  display: grid;
+  grid-template-columns: 7% 60% 13% 20%;
+}
+
+.subforum_column{
+  padding: 10px;
+  margin: 4px;
+  border-radius: 5px;
+  background-color: #808080;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subforum_devider{
+  display: block;
+  border: 0;
+  height: 50px
+}
+</style>
+<!-- CSS END -->
+
+<!-- ############# INDEX CSS ########### -->
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 14px 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content form {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #111;}
+</style>
+<!-- ############# INDEX CSS END ########### -->
 
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
     import {getDatabase, set, get, update, remove, ref, child} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-  
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
@@ -38,18 +253,18 @@
       appId: "1:119767757957:web:d9f4cfeed391dc8bbde5ec",
       measurementId: "G-WEB0Z72L02"
     };
-  
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-  
+
     const db = getDatabase();
-  
+
     var user = document.getElementById("username");
     var title = document.getElementById("title");
     var body = document.getElementById("body");
     var insertBTN = document.getElementById("insert");
-  
+
     function CreateData(){
       //alert("Clicked");
       set(ref(db),{
@@ -63,7 +278,7 @@
          alert(error);
      });
     }
-  
+
     insertBTN.addEventListener('click',CreateData);
   </script>
 

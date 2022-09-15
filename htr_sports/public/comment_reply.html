@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width. initial-scale=1.0">
+  <title>HTR Forum</title>
+  <!-- insert icon 1 refernce here -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class = "container">
+     <h1><a href = "forum.html">Back to Forum</a></h1>
+     <h1><a href = "posts.html">Back to Post</a></h1>
+     <div class = "topic_container">
+       <div class = "head">
+         <div class ="authors">Author</div>
+         <div class = "topic_title">Topic Title</div>
+</div>
+         <div class = "body">
+         <div class= "authors">
+           <div class = "username"><a href = "">User1</a></div>
+             <div> Posts:<u>1</u></div>
+</div>
+         <div class = "content">
+           This is where the content goes
+           <div class = "comment">
+             <button onclick = "showComment()">Comment</button>
+             </div>
+       </div>
+   </div>
+</div>
+<div class = "comment_area hide" id = "comment_area">
+  <textarea name = "comment" id = "" placeholder = "comment here..."></textarea>
+  <input type = "submit" name = "" id = "" value = "submit">
+</div>
+</body>
+<!-- ###### FORUM CSS ###########-->
+<style>
+/* global */
+*{
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+
+html{
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+.container{
+  margin: 10px;
+  padding: 20px;
+}
+.subforum_row{
+  display: grid;
+  grid-template-columns: 7% 60% 13% 20%;
+}
+
+.subforum_column{
+  padding: 10px;
+  margin: 4px;
+  border-radius: 5px;
+  background-color: #808080;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subforum_devider{
+  display: block;
+  border: 0;
+  height: 50px
+}
+</style>
+<!-- ###### FORUM CSS ###########-->
+
+<!-- ######### COMMENT/REPLY CSS ######### -->
+<style>
+.head{
+  display: flex;
+  padding: 5px;
+}
+.head div{
+  margin: 2px;
+  padding: 5px;
+  background-color: #808080;
+}
+.authors{
+  flex: 20%;
+}
+.topic_title{
+  flex: 115%;
+}
+.content{
+  flex: 80%;
+}
+.body{
+  display: flex;
+  padding: 10px;
+  margin-top: 5px;
+}
+.body .authors .username{
+  font-size: 15px;
+}
+.body .content .comment button{
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  float: right;
+}
+.comment_area{
+  margin-bottom: 50px;
+}
+.comment_area textarea{
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  margin-block: 10px;
+}
+.comment_area input{
+  float: right;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.comment_area input:hover{
+  border: solid 1px #808080;
+}
+
+</style>
+<!-- ######### END COMMENT/REPLY CSS ######### -->
+<script>
+  funtion showComment(){
+    var commentArea = document.getElementById("comment_area");
+    commentArea.setAttribute("style", "display:block;");
+  }
+  </script>

@@ -1,0 +1,9 @@
+/* global */
+*{
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+}
