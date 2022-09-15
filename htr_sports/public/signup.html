@@ -23,9 +23,85 @@ body
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
 
-.form-item-username{
+.form-item-username-firstName{
+  padding-bottom: 5px;
 
 }
+
+.form-item-username-lastName{
+  padding-bottom: 5px;
+
+}
+
+.form-email{
+  padding-bottom: 5px;
+}
+
+.form-phone{
+  padding-bottom: 5px;
+}
+
+.form-password{
+  padding-bottom: 5px;
+}
+
+.signUp{
+  width: 70%;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #e9f4fb;
+  background: #28282B;
+}
+
+.signUp:hover{
+  border-color: #2691d9;
+  transition: .5s;
+}
+
+.having-an-account{
+  margin: 25px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+
+.having-an-account p{
+  color: grey;
+  text-decoration: none;
+}
+
+.having-an-account a{
+  color: #2691d9;
+  text-decoration: none;
+}
+
+.having-an-account a:hover{
+  text-decoration: underline;
+}
+
+.terms-and-agreement{
+  margin: 5px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+
+.terms-and-agreement p{
+  color: grey;
+  text-decoration: none;
+}
+
+.terms-and-agreement a{
+  color: #2691d9;
+  text-decoration: none;
+}
+
+.terms-and-agreement a:hover{
+  text-decoration: underline;
+}
+
 
 .sign-up-form h1{
   text-align: center;
@@ -45,8 +121,12 @@ body
         <h1>Sign Up</h1>
         <!-- Creating our Sign up container -->
         <form action = "index.html">
-            <div class = "form-item-username">
+            <div class = "form-item-username-firstName">
                 <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                <!-- Creating the text boxes for First name and Last name -->
+            </div>
+
+            <div class = "form-item-username-lastName">
                 <input type="text" name="lastName" id="lastName" placeholder="Last Name">
                 <!-- Creating the text boxes for First name and Last name -->
             </div>
@@ -67,8 +147,8 @@ body
             </div>
 
             <div class = "terms-and-agreement">
-                <input type="checkbox" name="accept" id="accept">
                 <p>I agree and have read the <a href="#">Terms & Conditions</a></p>
+                <input type="checkbox" name="accept" id="accept">
                 <!-- Creating our accepting box for the Terms and Agreements -->
             </div>
 
