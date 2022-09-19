@@ -89,9 +89,7 @@ nav a:hover::before{
 
 /* TODO: REMOVE THIS EXAMPLE */
 .page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ 
   height: 100%;
   font-size: 64px;
 }

@@ -2,7 +2,8 @@ import Paths from "../utils/route";
 
 const HeaderItem = ({ name, path }) => {
     return (
-        <li>
+        <li> 
+            {/* TODO: use link component from react route */}
             <a href={path}>{name}</a>
         </li>
     )
@@ -16,7 +17,9 @@ const Header = () => {
             <div className="container">
                 <nav>
                     <ul className="header-list">
-                        {Paths.map(({name, path}) => <HeaderItem key={name} name={name} path={path} />)}
+                        {/* {Paths.map(({name, path}) => <HeaderItem key={name} name={name} path={path} />)} */}
+                        <HeaderItem name={Paths.home.name} path={Paths.home.path}/>
+                        <HeaderItem name={Paths.soccer.name} path={Paths.soccer.path}/>
                     </ul>
                 </nav>
             </div>

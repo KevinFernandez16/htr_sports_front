@@ -15,11 +15,12 @@ function App() {
   return (
     <div className='app-container'>
       <Router>
-        <Header />
+        {/* <Header /> */}
         <Routes >
-          <Route path={Paths[0].path} element={<Home />} />
-          <Route path={Paths[1].path} element={<Soccer />} />
-          <Route path={Paths[4].path} element={<Forum />} />
+          <Route path={Paths.home.path} element={<Home />} />
+          <Route path={Paths.soccer.path} element={<Soccer />} />
+          {/* <Route path={Paths[1].path} element={<Soccer />} />
+          <Route path={Paths[4].path} element={<Forum />} /> */}
         </Routes >
       </Router>
     </div>
