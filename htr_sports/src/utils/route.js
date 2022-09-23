@@ -35,9 +35,17 @@ const Paths = {
         name: 'Soccer',
         path: '/soccer' 
     },
-    basketball:{
+    basketball: {
         name: 'Basketball',
         path: '/basketball' 
+    },
+    fantasy: {
+        name: 'Fantasy',
+        path: '/fantasy' 
+    },
+    forum: {
+        name: 'Forum',
+        path: '/forum'
     }
 };
 
