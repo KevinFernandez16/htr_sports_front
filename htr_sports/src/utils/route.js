@@ -34,7 +34,11 @@ const Paths = {
     soccer: {
         name: 'Soccer',
         path: '/soccer' 
-    } 
+    },
+    basketball:{
+        name: 'Basketball',
+        path: '/basketball' 
+    }
 };
 
 export default Paths;
