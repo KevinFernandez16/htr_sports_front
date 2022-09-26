@@ -4,6 +4,7 @@ import Soccer from './pages/soccer'
 import Basketball from './pages/basketball'
 import Fantasy from './pages/fantasy'
 import Forum from './pages/forum'
+import FindGame from './pages/findgame'
 import Paths from './utils/route'
 import React from "react";
 import {
@@ -24,6 +25,7 @@ function App() {
           <Route path={Paths.basketball.path} element={<Basketball />} />
           <Route path={Paths.fantasy.path} element={<Fantasy />} />
           <Route path={Paths.forum.path} element={<Forum />} />
+          <Route path={Paths.findGame.path} element={<FindGame />} />
           {/* <Route path={Paths[1].path} element={<Soccer />} />
           <Route path={Paths[4].path} element={<Forum />} /> */}
         </Routes >

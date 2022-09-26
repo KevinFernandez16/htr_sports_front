@@ -46,7 +46,13 @@ const Paths = {
     forum: {
         name: 'Forum',
         path: '/forum'
+    },
+    findGame: {
+        name: 'Find Game',
+        path: '/findgame'
     }
+
+
 };
 
 export default Paths;

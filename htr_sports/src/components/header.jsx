@@ -1,4 +1,5 @@
 import Paths from "../utils/route";
+import LogInSignUp from "./log-in-sign-up";
 
 const HeaderItem = ({ name, path }) => {
     return (
@@ -8,7 +9,6 @@ const HeaderItem = ({ name, path }) => {
         </li>
     )
 }
-
 
 const Header = () => {
 
@@ -23,6 +23,8 @@ const Header = () => {
                         <HeaderItem name={Paths.basketball.name} path={Paths.basketball.path}/>
                         <HeaderItem name={Paths.fantasy.name} path={Paths.fantasy.path}/>
                         <HeaderItem name={Paths.forum.name} path={Paths.forum.path}/>
+                        <HeaderItem name={Paths.findGame.name} path={Paths.findGame.path}/>
+                        <LogInSignUp />
                     </ul>
                 </nav>
             </div>
