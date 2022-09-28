@@ -14,27 +14,27 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
             <h1>Sign Up</h1>
             {/* <!-- Creating our Sign up container --> */}
                 <form method="post">
-                    <div class = "form-item-username-firstName">
+                    <div class = "txt_field_signup">
                         <input type="text" name="firstName" id="firstName" placeholder="First Name" />
                         { /* <!-- Creating the text boxes for First name and Last name --> */}
                     </div>
 
-                    <div class = "form-item-username-lastName">
+                    <div class = "txt_field_signup">
                         <input type="text" name="lastName" id="lastName" placeholder="Last Name" />
                         {/* <!-- Creating the text boxes for First name and Last name --> */}
                     </div>
 
-                    <div class = "form-email">
+                    <div class = "txt_field_signup">
                         <input type="email" name="email" id="email" placeholder="Email" />
                         {/* <!-- Creating Email text box --> */}
                     </div>
 
-                    <div class = "form-phone">
+                    <div class = "txt_field_signup">
                         <input type="tel" name="phonenumber" id="phonenumber" placeholder="Phone Number" />
                         {/* <!-- Creating text box for user's phone numbers --> */}
                     </div>
 
-                    <div class = "form-password">
+                    <div class = "txt_field_signup">
                         <input type="password" name="password" id="password" placeholder="Password" />
                         {/* <!-- Creating text box for user's to enter their password --> */}
                     </div>

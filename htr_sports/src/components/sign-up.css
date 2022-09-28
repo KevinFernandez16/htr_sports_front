@@ -1,3 +1,59 @@
+.container-SignUp{
+  margin: 0;
+  padding: 0;
+  height: 62vh;
+  width: 50vh;
+  overflow: hidden;
+}
+.center-SignUp{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  /* box-shadow: 10px 10px 15px rgba(0,0,0,0.05); */
+}
+.center-SignUp h1{
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid silver;
+}
+.center-SignUp form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+
+
+
+form .txt_field_signup{
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 20px 0;
+}
+.txt_field_signup input{
+  width: 100%;
+  padding: 0 5px;
+  height: 15px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 body
 {
     margin: 0;
