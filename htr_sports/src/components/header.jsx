@@ -1,6 +1,6 @@
 import Paths from "../utils/route";
 import LogInSignUp from "./log-in-sign-up";
-
+import SignUp from "./sign-up";
 const HeaderItem = ({ name, path }) => {
     return (
         <li> 
@@ -24,6 +24,7 @@ const Header = () => {
                         <HeaderItem name={Paths.fantasy.name} path={Paths.fantasy.path}/>
                         <HeaderItem name={Paths.forum.name} path={Paths.forum.path}/>
                         <HeaderItem name={Paths.findGame.name} path={Paths.findGame.path}/>
+                        <SignUp/>
                         <LogInSignUp />
                     </ul>
                 </nav>
