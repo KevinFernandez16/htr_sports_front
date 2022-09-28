@@ -12,7 +12,7 @@
         <input type = "text" id = "title" name = "title"><br><br>
         <label for = "body">Body:</label>
         <input type = "text" id = "body" name = "body"><br><br>
-        <input type = "button" id = "insert" value = "Enter"> <!-- onclick = "createAccount()" -->
+        <input type = "button" id = "insert" value = "Submit Post"> <!-- onclick = "createAccount()" -->
       </form>
     </div>
   </div></center>
@@ -56,6 +56,7 @@
     var body = document.getElementById("body");
     var insertBTN = document.getElementById("insert");
     var forum = document.getElementById("forum");
+    var insertBTNedit = document.getElementById("edit");
 
     function CreatePost(){
       //alert("Clicked");
@@ -89,6 +90,10 @@
               linebreaker.innerHTML = "---------------------------------------------"
               forum.appendChild(title);
               forum.appendChild(post);
+              //forum.insertBTNedit.addEventListener('click',editPost);
+              const edit = document.createElement("e");
+              edit.innerHTML = edit.innerHTML + "<br>Title: <input type='text' id='title' /><br>Body: <input type='text' id='body'/><br><button type='button' onclick=editPost() >Edit</button><br>";
+              forum.appendChild(edit); 
               forum.appendChild(linebreaker);
             }
         } else {
@@ -99,5 +104,19 @@
         });
     }
     readData();
+
+    function editPost(){
+      set(ref(db, '/Posts'),{
+         Title: title.value,
+         Body: body.value
+     })
+     .then(()=>{
+         alert("Edited successfully");
+         location.reload();
+     })
+     .catch((error)=>{
+         alert(error);
+     });
+    }
   </script>
 </html>
