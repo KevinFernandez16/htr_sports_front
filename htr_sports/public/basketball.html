@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTR Sports - Basketball - NBA</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+          }
+          
+          li {
+            float: left;
+          }
+          
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+          
+          li a:hover {
+            background-color: #111;
+          }
+
+          h1 {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            font-size: 50px;
+          }
+          
+          div {
+
+            font-size: 35px;
+          }
+
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#huntersports">Hunter Sports</a></li>
+        <li><a href="./soccer.html">Soccer</a></li>
+        <li><a href="./basketball.html">Basketball</a></li>
+        <li><a href="./fantasy.html">Fantasy</a></li>
+        <li><a href="./forum.html">Forum</a></li>
+        <li><a href="./findgame.html">Find a Game</a></li>
+        <li><a href="./signin.html">Sign In</a></li>
+        <li><a href="#search">Search</a></li>
+      </ul>
+      <!-- Above is the navbar -->
+
+    <p>NBA Standings 2021-22</p>
+    <!-- Making the basketball.html page lead to the NBA standings -->
+
+    <img src="https://media.api-sports.io/basketball/leagues/12.png">
+
+    <p style="
+    text-align: left;
+    ">Eastern Conference</p>
+    <!-- Centering the Eastern Conference standings to the left -->
+
+    <p style="
+    text-align: right;
+    position: relative;
+    ">Western Conference</p>
+    <!-- Centering the Western Conference standings to the right -->
+
+    <ul id="easternConference" style="
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    " ></ul>
+    <!-- Displaying the Eastern Conference standings on the left side of the screen -->
+
+    <ul id="westernConference" style="
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    " ></ul>
+    <!-- Displaying the Western Conference standings on the right side of the screen -->
+
+
+
+    <script type="text/javascript">
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '',
+                'X-RapidAPI-Host': 'api-basketball.p.rapidapi.com'
+            }
+        };
+        
+        fetch('https://api-basketball.p.rapidapi.com/standings?league=12&season=2021-2022&group=Eastern%20Conference', options)
+            .then(response => response.json())
+            .then(eastStandings => {
+                eastStandings.response[0].map(eastStandings => {
+                const markup = `
+                <li>
+                    <img style="width:40px; height: 40px;" src = "${eastStandings.team.logo}"
+                    <br>
+                        Position : ${eastStandings.position}
+                        Team : ${eastStandings.team.name}
+                <li>`
+                document.getElementById('easternConference').insertAdjacentHTML('beforeend',markup)
+                    })
+                })
+            .catch(err => console.error(err));
+
+            const options2 = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '',
+                    'X-RapidAPI-Host': 'api-basketball.p.rapidapi.com'
+                }
+            };
+            
+        fetch('https://api-basketball.p.rapidapi.com/standings?league=12&season=2021-2022&group=Western%20Conference', options2)
+            .then(response => response.json())
+            .then(westStandings => {
+                westStandings.response[0].map(westStandings => {
+                const markup = `
+                <li>
+                    <img style="width:40px; height: 40px;" src = "${westStandings.team.logo}"
+                    <br>
+                        Position : ${westStandings.position}
+                        Team : ${westStandings.team.name}
+                <li>`
+                document.getElementById('westernConference').insertAdjacentHTML('beforeend',markup)
+                    })
+                })
+            .catch(err => console.error(err));
+
+    </script>
+
+
+</body>
+
+</html>

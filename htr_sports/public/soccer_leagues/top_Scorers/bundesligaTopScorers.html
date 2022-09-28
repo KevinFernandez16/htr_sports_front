@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTR Sports - Bundesliga Statistics</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+          }
+          
+          li {
+            float: left;
+          }
+          
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+          
+          li a:hover {
+            background-color: #111;
+          }
+
+          h1 {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            font-size: 50px;
+          }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#huntersports">Hunter Sports</a></li>
+        <li><a href="/soccer.html">Soccer</a></li>
+        <li><a href="/basketball.html">Basketball</a></li>
+        <li><a href="/fantasy.html">Fantasy</a></li>
+        <li><a href="/forum.html">Forum</a></li>
+        <li><a href="/findgame.html">Find a Game</a></li>
+        <li><a href="/signin.html">Sign In</a></li>
+        <li><a href="#search">Search</a></li>
+      </ul>
+    </body>
+
+    <ul id="topAssisters" style="
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    font-size: small;
+  " ></ul>
+  <!-- The first element which is the top assisters which will float to the right -->
+
+    <ul id="topScorers" style="
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    font-size: small;
+  " ></ul>
+  <!-- The second element which is the top scorers which will float on the left -->
+
+    <script type="text/javascript">
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '',
+                'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+            }
+        };
+        
+        fetch('https://api-football-v1.p.rapidapi.com/v3/players/topscorers?league=78&season=2022', options)
+        .then(response => response.json())
+        .then(data => {
+            data.response.map(data => {
+            const markup = ` 
+            <li>
+              <li>
+                <img style="width:50px; height: 50px;" src = "${data.player.photo}"
+                <br>
+                <img style="width:50px; height: 50px;" src = "${data.statistics[0].team.logo}"
+              <li>
+              <li>
+                Team : ${data.statistics[0].team.name}
+                Name : ${data.player.name}
+                Age : ${data.player.age}
+                Nationality : ${data.player.nationality}
+                Goals Scored : ${data.statistics[0].goals.total}
+                Appearences : ${data.statistics[0].games.appearences}
+                Minutes Played : ${data.statistics[0].games.minutes}
+              <li>
+            <li>`
+              document.getElementById('renderList').insertAdjacentHTML('beforeend',markup)
+            })
+          })
+        .catch(err => console.error(err)) //Any error will then be put in console
+
+        const getAssisters = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': '',
+            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+          }
+        };
+
+        fetch('https://api-football-v1.p.rapidapi.com/v3/players/topassists?league=78&season=2022', getAssisters)
+        .then(response => response.json())
+        .then(assist => {
+          assist.response.map(assist => {
+            const markup2 = `
+            <li>
+              <li>
+                <img style="width:50px; height: 50px;" src = "${assist.player.photo}"
+                <br>
+                <img style="width:50px; height: 50px;" src = "${assist.statistics[0].team.logo}"
+              <li>
+              <li>
+                Team : ${assist.statistics[0].team.name}
+                Name : ${assist.player.name}
+                Age : ${assist.player.age}
+                Nationality : ${assist.player.nationality}
+                Assists : ${assist.statistics[0].goals.assists}
+                Appearences : ${assist.statistics[0].games.appearences}
+                Minutes Played : ${assist.statistics[0].games.minutes}
+              <li>
+            <li>`
+              document.getElementById('topAssisters').insertAdjacentHTML('beforeend',markup2)
+          })
+        })
+
+    </script>
+
+
+    </html>

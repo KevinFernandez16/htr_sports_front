@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTR Sports - Ligue 1 Standings</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+          }
+          
+          li {
+            float: left;
+          }
+          
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+          
+          li a:hover {
+            background-color: #111;
+          }
+
+          h1 {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            font-size: 50px;
+          }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#huntersports">Hunter Sports</a></li>
+        <li><a href="../soccer.html">Soccer</a></li>
+        <li><a href="../basketball.html">Basketball</a></li>
+        <li><a href="../fantasy.html">Fantasy</a></li>
+        <li><a href="../forum.html">Forum</a></li>
+        <li><a href="../findgame.html">Find a Game</a></li>
+        <li><a href="../signin.html">Sign In</a></li>
+        <li><a href="#search">Search</a></li>
+      </ul>
+
+      <div class="link">
+        <a href="./top_Scorers/ligue1TopScorers.html">Ligue 1 Statistics</a>
+      </div>
+
+<ul id="leagueInfo" style="
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+" ></ul>
+
+<p>The Ligue 1 2022/2023 Standings</p>
+
+<ul id="renderList" style="
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+" ></ul>
+
+
+      <script type="text/javascript">
+        const options = {
+          method: 'GET',
+          headers: {
+              'X-RapidAPI-Key': '',
+              'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+          }
+      };
+      
+      fetch('https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=61', options)
+          .then(response => response.json())
+          .then(data => {
+            data.response[0].league.standings[0].map(data => {
+            const markup = ` 
+            <li>
+              <li>
+                <img style="width:100px; height: 100px;" src = "${data.team.logo}"
+                <br>
+              <li>
+            <li>
+                Played : ${data.all.played}
+                Wins : ${data.all.win}
+                Draws : ${data.all.draw}
+                Losses : ${data.all.lose}
+                Goals For : ${data.all.goals.for}
+                Goals Against : ${data.all.goals.against}
+                Form : ${data.form}
+                Points : ${data.points}
+              <li>
+            <li>`
+              document.getElementById('renderList').insertAdjacentHTML('beforeend',markup)
+            })
+          })
+          .catch(err => console.error(err));
+
+          const options2 = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '',
+                'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+            }
+        };
+        
+        fetch('https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=61', options2)
+            .then(response => response.json())
+            .then(data => {
+              data.response.map(data => {
+              const markup = `
+              <li> 
+                <img src = "${data.league.logo}"
+              <li>`
+
+                document.getElementById('leagueInfo').insertAdjacentHTML('beforeend',markup)
+            })
+          })
+
+
+        </script>
+        
+</body>
+
+</html>
