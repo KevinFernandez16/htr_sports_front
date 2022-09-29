@@ -27,9 +27,9 @@
 // ]
 
 const Paths = {
-    home: {
-        path: '/', 
-        name: 'Hunter Sports' 
+    home: { 
+        name: 'Hunter Sports',
+        path: '/' 
     },
     soccer: {
         name: 'Soccer',
