@@ -72,7 +72,18 @@
             <a href="./soccer_leagues/Ligue_1.html">Ligue 1</a>
           </div>
       </div>
+      
 
+      <iframe src="https://www.scorebat.com/embed/livescore/?token=MjgwODNfMTY2NDQxMzUzOV9kYzFjOWY2MGZjOTBkZTI2ZjllMjhiZjM5MWRmNDU0YzQxNTVjOTcz" frameborder="0" width="600" height="760" allowfullscreen allow='autoplay; fullscreen' style="width:100%;height:760px;overflow:hidden;display:block;" class="_scorebatEmbeddedPlayer_"></iframe><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>
+      
+      <script>
+
+        fetch('https://www.scorebat.com/video-api/v3/feed/?token=[MjgwODNfMTY2NDQxMzUzOV8zNWEyZTY4ZmI5NGE4NWRkM2NjYmU4NjY2OTQzZjViYTAxNDZhMDFi]')
+        .then(response => response.json())
+        .then(response => console.log(response.response[0].videos[0].embed))
+        .catch(err => console.error(err));
+
+      </script>
 </body>
 
 </html>
