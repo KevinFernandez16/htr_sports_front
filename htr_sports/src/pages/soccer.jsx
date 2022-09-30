@@ -1,35 +1,90 @@
-// const Soccer = () => {
-//     return <div className="page">SOCCER</div>
-// }
-
-// export default Soccer;
-
-import useFetch from "../components/useFetch";
+import { useEffect, useState } from "react";
 import { MainLayout } from "./mainLayout";
-
-
-
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 const Soccer = () => {
+  const [standings, setStandings] = useState([]);
+  const [leagueID, setleagueID] = useState();
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    };
 
-    const {data, loading, error} = useFetch("https://www.scorebat.com/video-api/v3/feed/?token=Mjc4MDdfMTY2NDE0ODQ1OF80NjgyMGI2MzE1YmFlN2IyZmE2ZmNkNzAxMTg2Y2VjMGI4MTIxZjNi%22");
+    if (leagueID) {
+      fetch(
+        `https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=${leagueID}`,
+        options
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setStandings(data.response[0].league.standings[0]);
+        });
+    }
+  }, [leagueID]);
 
-    console.log(data?.response);
-    if(loading) return <h1>Loading...</h1>
+  const dropDownOptions = [39, 40, 41, 42, 43];
 
-    if(error) console.log(error);
-    
-    return <div className="page"> 
-    <MainLayout>
-       <div>
-            <div> 
-                <iframe src={data?.response[23].matchviewUrl} width="500" height="300"></iframe>
-    
-            </div>
-       </div>
-    </MainLayout> 
-    
+  // fetch('https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=39', options)
+
+  return (
+    <div className="page">
+      <MainLayout>
+        <div>
+          <Dropdown
+            options={dropDownOptions}
+            onChange={(value) => {
+              setleagueID(value.label);
+            }}
+            placeholder="Select an option"
+          />
+          <div>
+            {standings.length > 0 &&
+              standings.map((standing) => {
+                return (
+                  <div
+                    key={standing.team.id}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginBottom: 20,
+                    }}
+                  >
+                    <div style={{ display: "flex" }}>
+                      <h1>{standing.team.name}</h1>
+                      <div>
+                        <img
+                          style={{ height: 50, width: 50 }}
+                          src={standing.team.logo}
+                          alt="Team Logo"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                      }}
+                    >
+                      <p>Played : {standing.all.played}</p>
+                      <p>Wins: {standing.all.win}</p>
+                      <p>Losses: {standing.all.lose}</p>
+                      <p>Goals For: {standing.all.goals.for}</p>
+                      <p>Goals Against: {standing.all.goals.against}</p>
+                      <p>Form: {standing.form}</p>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      </MainLayout>
     </div>
-}
+  );
+};
 
 export default Soccer;
