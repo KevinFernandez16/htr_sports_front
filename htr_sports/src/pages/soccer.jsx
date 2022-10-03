@@ -2,10 +2,16 @@ import { useEffect, useState } from "react";
 import { MainLayout } from "./mainLayout";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { Link } from "react-router-dom";
 
 const Soccer = () => {
   const [standings, setStandings] = useState([]);
+  const [inputSearch, setInputSearch] = useState();
+  const [searchTerm, setSearchTerm] = useState();
+  const [leagueList, setLeagueList] = useState([]);
   const [leagueID, setleagueID] = useState();
+
+  // A function that runs right away, in this case it getting the league ID
   useEffect(() => {
     const options = {
       method: "GET",
@@ -27,18 +33,57 @@ const Soccer = () => {
     }
   }, [leagueID]);
 
-  const dropDownOptions = [39, 40, 41, 42, 43];
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    };
 
-  // fetch('https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=39', options)
+    if (searchTerm) {
+      fetch(
+        `https://api-football-v1.p.rapidapi.com/v3/leagues?country=${searchTerm}&season=2022&type=league`,
+        options
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          if (data && data.response.length > 1) {
+            const countryLeagues = data.response.map((obj) => {
+              return { label: obj.league.name, value: obj.league.id };
+            });
+            setLeagueList(countryLeagues);
+            console.log(countryLeagues)
+          }
+        });
+    }
+  }, [searchTerm]);
 
   return (
     <div className="page">
       <MainLayout>
+        <h1>Search the country of your league</h1>
+        <input
+          value={inputSearch}
+          onChange={(event) => {
+            const text = event.target.value;
+            setInputSearch(text);
+          }}
+        />
+        <button
+          onClick={(event) => {
+            setSearchTerm(inputSearch);
+          }}
+        >
+          Search
+        </button>
         <div>
+          <h2>Find your league</h2>
           <Dropdown
-            options={dropDownOptions}
-            onChange={(value) => {
-              setleagueID(value.label);
+            options={leagueList}
+            onChange={(item) => {
+              setleagueID(item.value);
             }}
             placeholder="Select an option"
           />
@@ -55,7 +100,9 @@ const Soccer = () => {
                     }}
                   >
                     <div style={{ display: "flex" }}>
+                      <Link to={`/soccer/team/${standing.team.id}`}>
                       <h1>{standing.team.name}</h1>
+                      </Link>
                       <div>
                         <img
                           style={{ height: 50, width: 50 }}
