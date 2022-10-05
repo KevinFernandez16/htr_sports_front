@@ -1,0 +1,83 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  header {
+    background: #28282B;
+  }
+  
+  header::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  
+  /* .logo {
+    float: left;
+    padding: 10px 0;
+  } */
+  
+  nav {
+    float: right;
+  }
+  
+  nav ul{
+    margin: 0;
+    padding: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    list-style: none;
+  }
+  
+  nav li{
+    display: inline-block;
+    margin-left: 32px;
+    position: relative;
+    
+  }
+  
+  nav a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    
+  }
+  
+  nav a:hover{
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  nav a::before{
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: white;
+  
+    position: absolute;
+    top: 0;
+    width: 0%;
+    transition: all ease-in-out 250ms;
+  }
+  
+  nav a:hover::before{
+    width: 100%;
+  }
+  
+  /* TODO: MOVE THIS SEPARATELY */
+  .App {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .header-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .app-container {
+    width: 100vw;
+    height: 100vh;
+  }
