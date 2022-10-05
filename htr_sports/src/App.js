@@ -30,6 +30,7 @@ function App() {
           <Route path={Paths[4].path} element={<Forum />} /> */}
         </Routes >
       </Router>
+      
     </div>
   );
 }
