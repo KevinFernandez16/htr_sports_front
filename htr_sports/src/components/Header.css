@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+
 .container {
     width: 80%;
     margin: 0 auto;
   }
   
   header {
-    background: #28282B;
+    background: #171717;
+    height: 100%;
+    font-size: 25px;
   }
   
   header::after {
@@ -32,28 +37,31 @@
   
   nav li{
     display: inline-block;
-    margin-left: 32px;
+    /* margin-left: 32px; */
+    margin-left: 2rem;
     position: relative;
     
   }
   
   nav a{
-    color: white;
+    /* color: white; */
+    color: #ec6a00;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 14px;
-    
+    font-size: 1rem;
+    font-family: 'Black Ops One', cursive;
   }
   
   nav a:hover{
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7); /*nav bar item text color*/
   }
   
   nav a::before{
     content: '';
     display: block;
-    height: 5px;
-    background-color: white;
+    height: 20%;
+    /* background-color: white; */
+    background-color: #ec6a00;
   
     position: absolute;
     top: 0;
@@ -77,7 +85,4 @@
     justify-content: space-between;
   }
   
-  .app-container {
-    width: 100vw;
-    height: 100vh;
-  }
+  

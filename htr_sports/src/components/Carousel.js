@@ -8,7 +8,7 @@ import { images } from '../Helpers/CarouselData';
 function Carousel() {
 
     const [currImg, setCurrImg] = useState(0);
-
+   
   return (
     <div className='carousel'>
         <div className='carouselInner' 
@@ -29,11 +29,11 @@ function Carousel() {
                 <pre className='description'>{images[currImg].description}</pre>
             </div>
             <div className='right' 
-              onClick={() => {
-                 currImg < images.length -1 && setCurrImg(currImg+1)
+                onClick={() => {
+                  currImg < images.length -1 && setCurrImg(currImg+1)
                 }}
             >   
-            <img
+            <img  
                 src={'images/angle-right.png'}
                 style={{ width: '30px', height: '30px', display: 'block' }}
             />

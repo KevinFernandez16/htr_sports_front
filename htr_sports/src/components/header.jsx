@@ -2,7 +2,7 @@ import Paths from "../utils/route";
 import LogInSignUp from "./log-in-sign-up";
 import SignUp from "./sign-up";
 
-import "./Header.css";
+import "./header.css";
 const HeaderItem = ({ name, path }) => {
     return (
         <li> 
@@ -28,6 +28,7 @@ const Header = () => {
                         <HeaderItem name={Paths.findGame.name} path={Paths.findGame.path}/>
                         <SignUp/>
                         <LogInSignUp />
+                        
                     </ul>
                 </nav>
             </div>

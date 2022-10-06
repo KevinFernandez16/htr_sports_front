@@ -43,24 +43,6 @@ form .txt_field_signup{
   outline: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-body
-{
-    margin: 0;
-    padding: 0;
-    background:  #BCC6CC;
-}
-
 .sign-up-form
 {
     width: 300px;
@@ -105,10 +87,10 @@ body
   background: #28282B;
 }
 
-.signUp:hover{
+/* .signUp:hover{
   border-color: #2691d9;
   transition: .5s;
-}
+} */
 
 .having-an-account{
   margin: 25px 0;

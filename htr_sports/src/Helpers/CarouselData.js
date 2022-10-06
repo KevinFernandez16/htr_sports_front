@@ -1,5 +1,5 @@
-import SoccerImg from '../CarouselImages/soccer.jpeg'
-import BasketballImg from '../CarouselImages/basketball2.jpg'
+import SoccerImg from '../CarouselImages/neymar.jpg'
+import BasketballImg from '../CarouselImages/jamesb.png'
 import CommunityImg from '../CarouselImages/community.jpg'
 
 export const images = [
@@ -15,7 +15,7 @@ export const images = [
     },
     {
         title: "Community", 
-        description: "Join The HTR Sports Community \nCreate your own profile \nInteract with sports lovers in our forums", 
+        description: "Join The HTR Sports Community \nCreate your own profile \nCommunity forums", 
         img: CommunityImg 
     },
 

@@ -16,7 +16,7 @@ import {
 
 function App() {
   return (
-    <div className='app-container'>
+    <div>
       <Router>
         {/* <Header /> */}
         <Routes >
