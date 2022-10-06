@@ -20,6 +20,7 @@ const Header = () => {
                 <nav>
                     <ul className="header-list">
                         {/* {Paths.map(({name, path}) => <HeaderItem key={name} name={name} path={path} />)} */}
+                        <div className="logo">logo</div>
                         <HeaderItem name={Paths.home.name} path={Paths.home.path}/>
                         <HeaderItem name={Paths.soccer.name} path={Paths.soccer.path}/>
                         <HeaderItem name={Paths.basketball.name} path={Paths.basketball.path}/>

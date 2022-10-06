@@ -39,8 +39,6 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
                         {/* <!-- Creating text box for user's to enter their password --> */}
                     </div>
 
-           
-
                     <div class = "form-button">
                         <button class="signUp" type="Submit">Sign Up</button>
                         {/* <!-- Creating the Sign Up button for user's to submit all their entered information --> */}
@@ -49,11 +47,8 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
                             {/* <!-- If a user has an account made already, they can log in throught our log in page  --> */}
                         </div>
                     </div>
-        </form>
-    </div>
-
-            
- 
+                </form>
+             </div>
         </Overlay>
     )
 };
@@ -72,7 +67,7 @@ const SignUp = () => {
     return (
         <li>
             <SignUpOverlay isOpen={open} onClose={closeSignUpOverlay} />
-            <div   onClick={openSignUpOverlay}>
+            <div   onClick={openSignUpOverlay} style={{cursor: 'pointer'}}>
                 <a>signup</a>
             </div>
         </li>

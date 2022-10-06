@@ -52,12 +52,12 @@ const LogInSignUp = () => {
     return (
         <li>
             <LogInOverlay isOpen={open} onClose={closeLogInOverlay} />
-            <div onClick={openLogInOverlay}>
+            <div onClick={openLogInOverlay} style={{cursor: 'pointer'}}>
                 {/* <img (style={{ width: '30px', height: '30px' }})
                     src={'images/profile.png'}
                     style={{ width: '100%', height: '100%', display: 'block' }}
                 /> */}
-                <a>Login</a>
+                <a >Login</a>
             </div>
         </li>
     )
