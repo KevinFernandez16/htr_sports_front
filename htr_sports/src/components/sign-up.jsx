@@ -7,7 +7,7 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
 
 
     return (
-        <Overlay isOpen={isOpen}>
+        <Overlay isOpen={isOpen} >
             <button className='close-btn' onClick={onClose}>X</button>
             {/* <div>LOGIN FORM HERE</div>  */}
             <div class = "sign-up-form">

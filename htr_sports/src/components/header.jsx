@@ -20,7 +20,14 @@ const Header = () => {
                 <nav>
                     <ul className="header-list">
                         {/* {Paths.map(({name, path}) => <HeaderItem key={name} name={name} path={path} />)} */}
-                        <div className="logo">logo</div>
+                        
+                            {/* <img 
+                            className="logo"
+                            src="images/logo_both.png"
+                            style={{ width: '15%', height: '15%', display: 'block' }}
+                            
+                            ></img> */}
+                        
                         <HeaderItem name={Paths.home.name} path={Paths.home.path}/>
                         <HeaderItem name={Paths.soccer.name} path={Paths.soccer.path}/>
                         <HeaderItem name={Paths.basketball.name} path={Paths.basketball.path}/>

@@ -8,13 +8,14 @@ const customStyles = {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
+ 
     },
   };
   
 
 const Overlay = ({ isOpen, onClose, children }) => {
     return (
-        <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles}>
+        <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles} >
             {children}
         </Modal>
     )

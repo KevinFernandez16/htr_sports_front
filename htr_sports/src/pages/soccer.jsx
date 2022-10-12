@@ -18,17 +18,17 @@ const Soccer = () => {
     // if(loading) return <h1>Loading...</h1>
 
     // if(error) console.log(error);
-    
-    return <div className="page"> 
-    <MainLayout>
-       <div>
-            {/* <div> 
+
+    return <div className="page">
+        <MainLayout>
+            <div>
+                {/* <div> 
                 <iframe src={data?.response[23].matchviewUrl} width="500" height="300"></iframe>
     
             </div> */}
-       </div>
-    </MainLayout> 
-    
+            </div>
+        </MainLayout>
+
     </div>
 }
 

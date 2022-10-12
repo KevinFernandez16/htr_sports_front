@@ -40,7 +40,7 @@
 }
 
 .title {
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 6rem;
     padding-top: 8%;
     padding-left: 8%;
@@ -49,10 +49,10 @@
 }
 
 .description {
-    font-size: 2rem;
     padding-left: 11%;
     padding-top: 5%;
     font-family: 'Black Ops One', cursive;
+    font-weight: bold;
     color: rgb(255, 255, 255);
     font-size: 3rem;
 }

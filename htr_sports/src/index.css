@@ -1,10 +1,9 @@
-body {
+*{
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 300;
-
-}
-
+  padding: 0;
+  box-sizing: border-box;
+  
+} 
 
 
 /* TODO: REMOVE THIS EXAMPLE */
