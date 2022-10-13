@@ -3,7 +3,7 @@ import { MainLayout } from "./mainLayout";
 import { useEffect, useState } from "react"; //importing the hooks
 
 const FindGame = () => {
-  const [venue, setVenue] = useState([]);
+  const [venue, setVenue] = useState();
 
   useEffect(() => {
     const options = {
@@ -14,18 +14,19 @@ const FindGame = () => {
       },
     };
 
+    if (!venue) {
       fetch(
         "https://api-football-v1.p.rapidapi.com/v3/venues?country=Ecuador",
         options
       )
         .then((response) => response.json())
         // .then(response => console.log(response))
-        .then((data) => {
-          setVenue(data.response)
-          console.log(data);
+        .then((response) => {
+          setVenue(response.response)
         });
     }
-  , [venue]);
+  }, [venue]);
+
 
   return (
     <div className="page">
@@ -33,7 +34,7 @@ const FindGame = () => {
         <div>
 
             {/* <h1> TESTING {venue.name} </h1> */}
-          {venue > 0 &&
+          {venue.length > 0 &&
             venue.map((venue) => {
               return (
                 <div key={venue.id}>
