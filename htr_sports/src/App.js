@@ -26,7 +26,7 @@ function App() {
           <Route path={Paths.home.path} element={<Home />} />
           <Route path={Paths.soccer.path} element={<Soccer />} />
           <Route path={`${Paths.soccer.path}/team/:id`} element={<Team />} />
-          {/* <Route path={`${Paths.soccer.path}/team/player/:id`} element={<Player />} /> */}
+          <Route path={`${Paths.soccer.path}/player/:id`} element={<Player />} />
           <Route path={Paths.basketball.path} element={<Basketball />} />
           <Route path={Paths.fantasy.path} element={<Fantasy />} />
           <Route path={Paths.forum.path} element={<Forum />} />

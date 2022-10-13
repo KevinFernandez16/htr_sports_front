@@ -1,6 +1,7 @@
 import { MainLayout } from "./mainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Team = () => {
   let { id } = useParams();
@@ -48,7 +49,9 @@ const Team = () => {
                       {players.photo && (
                         <img src={players.photo} alt="Player Logo" />
                       )}
-                      <p>Name : {players.name}</p>
+                      <Link to={`/soccer/player/${players.id}`}>
+                        <h1>{players.name}</h1>
+                      </Link>
                       <p>Number: {players.number}</p>
                       <p>Position: {players.position}</p>
                       <p>Age: {players.age}</p>
