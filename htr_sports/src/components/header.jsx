@@ -1,5 +1,8 @@
 import Paths from "../utils/route";
+import LogInSignUp from "./log-in-sign-up";
+import SignUp from "./sign-up";
 
+import "./Header.css";
 const HeaderItem = ({ name, path }) => {
     return (
         <li> 
@@ -9,7 +12,6 @@ const HeaderItem = ({ name, path }) => {
     )
 }
 
-
 const Header = () => {
 
     return (
@@ -18,11 +20,23 @@ const Header = () => {
                 <nav>
                     <ul className="header-list">
                         {/* {Paths.map(({name, path}) => <HeaderItem key={name} name={name} path={path} />)} */}
+
+                            {/* <img
+                            className="logo"
+                            src="images/logo_both.png"
+                            style={{ width: '15%', height: '15%', display: 'block' }}
+
+                            ></img> */}
+
                         <HeaderItem name={Paths.home.name} path={Paths.home.path}/>
                         <HeaderItem name={Paths.soccer.name} path={Paths.soccer.path}/>
                         <HeaderItem name={Paths.basketball.name} path={Paths.basketball.path}/>
                         <HeaderItem name={Paths.fantasy.name} path={Paths.fantasy.path}/>
                         <HeaderItem name={Paths.forum.name} path={Paths.forum.path}/>
+                        <HeaderItem name={Paths.findGame.name} path={Paths.findGame.path}/>
+                        <SignUp/>
+                        <LogInSignUp />
+
                     </ul>
                 </nav>
             </div>
