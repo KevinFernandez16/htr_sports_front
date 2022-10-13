@@ -1,5 +1,7 @@
 import { MainLayout } from "./mainLayout";
 //import {test} from "../index.js"
+import Carousel from "../components/Carousel";
+import "./Pages.css";
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
