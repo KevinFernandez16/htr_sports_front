@@ -16,6 +16,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import LeagueStats from './pages/SoccerPages/LeagueStats'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path={`${Paths.soccer.path}/team/:id`} element={<Team />} />
           <Route path={`${Paths.soccer.path}/player/:id`} element={<Player />} />
           <Route path={`${Paths.soccer.path}/Livescore`} element={<WidgetPage />} />
+          <Route path={`${Paths.soccer.path}/LeagueStats/:id`} element={<LeagueStats />} />
           <Route path={Paths.basketball.path} element={<Basketball />} />
           <Route path={Paths.fantasy.path} element={<Fantasy />} />
           <Route path={Paths.forum.path} element={<Forum />} />

@@ -66,11 +66,13 @@ const Soccer = () => {
       <MainLayout>
         <div>
           <Link to="/soccer/Livescore">
-          <h3 style={
-            {
-              fontSize: "xxx-large",
-            }
-          }>Link to Real Time Scores</h3>
+            <h3
+              style={{
+                fontSize: "xxx-large",
+              }}
+            >
+              Link to Real Time Scores
+            </h3>
           </Link>
         </div>
         <h1>Search the country of your league</h1>
@@ -98,6 +100,9 @@ const Soccer = () => {
             placeholder="Select an option"
           />
           <div>
+            <Link to={`/soccer/LeagueStats/${leagueID}`}>
+              <h4>League's Statistics</h4>
+            </Link>
             {standings.length > 0 &&
               standings.map((standing) => {
                 return (
