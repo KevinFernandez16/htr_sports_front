@@ -8,6 +8,7 @@ import Fantasy from './pages/fantasy'
 import Forum from './pages/forum'
 import FindGame from './pages/findgame'
 import Paths from './utils/route'
+import WidgetPage from './pages/SoccerPages/WidgetPage'
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -27,6 +28,7 @@ function App() {
           <Route path={Paths.soccer.path} element={<Soccer />} />
           <Route path={`${Paths.soccer.path}/team/:id`} element={<Team />} />
           <Route path={`${Paths.soccer.path}/player/:id`} element={<Player />} />
+          <Route path={`${Paths.soccer.path}/Livescore`} element={<WidgetPage />} />
           <Route path={Paths.basketball.path} element={<Basketball />} />
           <Route path={Paths.fantasy.path} element={<Fantasy />} />
           <Route path={Paths.forum.path} element={<Forum />} />

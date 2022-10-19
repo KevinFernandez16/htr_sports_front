@@ -3,6 +3,7 @@ import { MainLayout } from "./mainLayout";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { Link } from "react-router-dom";
+// import LiveScoreWidget from "../components/LiveScoreWidget"
 
 const Soccer = () => {
   const [standings, setStandings] = useState([]);
@@ -54,7 +55,7 @@ const Soccer = () => {
               return { label: obj.league.name, value: obj.league.id };
             });
             setLeagueList(countryLeagues);
-            console.log(countryLeagues)
+            console.log(countryLeagues);
           }
         });
     }
@@ -63,6 +64,15 @@ const Soccer = () => {
   return (
     <div className="page">
       <MainLayout>
+        <div>
+          <Link to="/soccer/Livescore">
+          <h3 style={
+            {
+              fontSize: "xxx-large",
+            }
+          }>Link to Real Time Scores</h3>
+          </Link>
+        </div>
         <h1>Search the country of your league</h1>
         <input
           value={inputSearch}
@@ -101,7 +111,7 @@ const Soccer = () => {
                   >
                     <div style={{ display: "flex" }}>
                       <Link to={`/soccer/team/${standing.team.id}`}>
-                      <h1>{standing.team.name}</h1>
+                        <h1>{standing.team.name}</h1>
                       </Link>
                       <div>
                         <img
