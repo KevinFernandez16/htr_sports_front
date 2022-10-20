@@ -17,6 +17,7 @@ import {
   Link
 } from "react-router-dom";
 import LeagueStats from './pages/SoccerPages/LeagueStats'
+import Error from './pages/Error'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path={Paths.fantasy.path} element={<Fantasy />} />
           <Route path={Paths.forum.path} element={<Forum />} />
           <Route path={Paths.findGame.path} element={<FindGame />} />
+          <Route path="*" element={<Error />} />
           {/* <Route path={Paths[1].path} element={<Soccer />} />
           <Route path={Paths[4].path} element={<Forum />} /> */}
         </Routes >
