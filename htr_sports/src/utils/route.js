@@ -28,25 +28,30 @@
 
 const Paths = {
     home: {
-        path: '/', 
-        name: 'Hunter Sports' 
+        path: '/',
+        name: 'Hunter Sports'
     },
     soccer: {
         name: 'Soccer',
-        path: '/soccer' 
+        path: '/soccer'
     },
     basketball: {
         name: 'Basketball',
-        path: '/basketball' 
+        path: '/basketball'
     },
     fantasy: {
         name: 'Fantasy',
-        path: '/fantasy' 
+        path: '/fantasy'
     },
     forum: {
         name: 'Forum',
         path: '/forum'
+    },
+    findGame: {
+        name: 'Find Game',
+        path: '/findgame'
     }
+
 };
 
 export default Paths;

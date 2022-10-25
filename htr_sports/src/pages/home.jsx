@@ -370,9 +370,12 @@ onAuthStateChanged(auth, (user) => {
 });
 
 const Home = () => {
-  return <div className="page">
-    <MainLayout>HOME</MainLayout>
+  return <div>
+    <MainLayout><div className="page">
     <Carousel/>
+
+    </div></MainLayout>
+
     <div id = "bannerPicture"></div>
     <div id = "profilePicture"></div>
     <div id = "uploadPhotoSpot"></div>
