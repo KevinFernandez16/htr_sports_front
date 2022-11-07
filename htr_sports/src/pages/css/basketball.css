@@ -1,0 +1,36 @@
+.flexbox-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.Titles{
+    font-size: xx-large;
+    text-align: center;
+}
+
+.Headtitle{
+    font-size:55px;
+    padding-bottom: 20px;
+}
+
+.Basketball-News{
+    text-align: center;
+    border: 5px solid rgb(0, 0, 0);
+}
+
+.Basketball-Links{
+    text-align: center;
+    border: 5px solid rgb(0, 0, 0);
+}
+
+.Basketball-Widget{
+    text-align: center;
+    border: 5px solid rgb(0, 0, 0);
+}
+
+.Texts{
+    font-size: larger;
+}
