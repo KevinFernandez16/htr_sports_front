@@ -12,13 +12,18 @@
     overflow: hidden;
     
   }
+
+  .login-title{
+    font-family: 'Black Ops One', cursive;
+    color: #ec6a00;
+  }
   .center{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background: white;
+    background: #171717;
     border-radius: 10px;
     /* box-shadow: 10px 10px 15px rgba(0,0,0,0.05); */
   }
@@ -44,6 +49,7 @@
     border: none;
     background: none;
     outline: none;
+    color: #ec6a00;
   }
   .txt_field label{
     position: absolute;
@@ -62,17 +68,19 @@
     left: 0;
     width: 0%;
     height: 2px;
-    background: red;
+    background: #ec6a00;
     transition: .5s;
+    
   }
   .txt_field input:focus ~ label,
   .txt_field input:valid ~ label{
     top: -5px;
-    color: #BCC6CC;
+    color: #ec6a00;
   }
   .txt_field input:focus ~ span::before,
   .txt_field input:valid ~ span::before{
     width: 100%;
+    
   }
   .pass{
     margin: -5px 0 20px 5px;
@@ -89,13 +97,13 @@
     background: #28282B;
     border-radius: 25px;
     font-size: 18px;
-    color: #e9f4fb;
+    color: #ec6a00;
     font-weight: 700;
     cursor: pointer;
     outline: none;
   }
   input[type="submit"]:hover{
-    border-color: #2691d9;
+    border-color: #ec6a00;
     transition: .5s;
   }
   .signup_link{
@@ -105,7 +113,7 @@
     color: #666666;
   }
   .signup_link a{
-    color: #2691d9;
+    color: #ec6a00;
     text-decoration: none;
   }
   .signup_link a:hover{
@@ -117,7 +125,8 @@
     float: right;
     width: 20px;
     height: 20px;
-    
+    color: #ec6a00;
+    background-color: #171717;
     box-sizing: border-box;
-
+    border-color: #ec6a00;
   }

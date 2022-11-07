@@ -2,9 +2,6 @@ import React, {useState} from 'react'
 import "./Carousel.css";
 import { images } from '../Helpers/CarouselData';
 
-
-
-
 function Carousel() {
 
     const [currImg, setCurrImg] = useState(0);
