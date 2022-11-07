@@ -2,6 +2,8 @@ import { MainLayout } from "./mainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../pages/css/soccerCss/soccerTeam.css"
+
 
 const Team = () => {
   let { id } = useParams();
@@ -34,7 +36,7 @@ const Team = () => {
   }, [id]);
 
   return (
-    <div className="page">
+    <div className="mainTeam">
       <MainLayout>
         <div>
           {team.logo && <img src={team.logo} alt="Team Logo" />}

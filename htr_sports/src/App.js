@@ -16,7 +16,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import LeagueStats from './pages/SoccerPages/LeagueStats.css'
+import LeagueStats from './pages/SoccerPages/LeagueStats'
 import Error from './pages/Error'
 
 
