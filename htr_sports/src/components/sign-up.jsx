@@ -11,7 +11,7 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
             <button className='close-btn' onClick={onClose}>X</button>
             {/* <div>LOGIN FORM HERE</div>  */}
             <div class = "sign-up-form">
-            <h1>Sign Up</h1>
+            <h1 className='signup-title'>Sign Up</h1>
             {/* <!-- Creating our Sign up container --> */}
                 <form method="post">
                     <div class = "txt_field_signup">

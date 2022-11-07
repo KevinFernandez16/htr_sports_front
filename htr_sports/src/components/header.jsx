@@ -2,7 +2,7 @@ import Paths from "../utils/route";
 import LogInSignUp from "./log-in-sign-up";
 import SignUp from "./sign-up";
 
-import "./header.css";
+import "./Header.css";
 const HeaderItem = ({ name, path }) => {
     return (
         <li> 

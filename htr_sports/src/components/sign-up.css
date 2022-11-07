@@ -14,6 +14,7 @@ form .txt_field_signup{
   border: none;
   background: none;
   outline: none;
+  color: #ec6a00;
 }
 
 .sign-up-form
@@ -23,7 +24,7 @@ form .txt_field_signup{
     padding: 20px;
     margin: 8% auto 0;
     text-align: center;
-    background: white;
+    background: #171717;
     /* border-radius: 10px; */
     /* box-shadow: 10px 10px 15px rgba(0,0,0,0.05); */
 }
@@ -34,7 +35,7 @@ form .txt_field_signup{
 
 .form-item-username-firstName{
   padding-bottom: 5px;
-
+  
 }
 
 .form-item-username-lastName{
@@ -60,8 +61,13 @@ form .txt_field_signup{
   border: 1px solid;
   border-radius: 25px;
   font-size: 15px;
-  color: #e9f4fb;
+  color: #ec6a00;
   background: #28282B;
+}
+
+.signup-title{
+  font-family: 'Black Ops One', cursive;
+  color: #ec6a00;
 }
 
 /* .signUp:hover{
