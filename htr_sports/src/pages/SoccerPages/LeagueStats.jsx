@@ -1,7 +1,7 @@
 import { MainLayout } from "../mainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "./LeagueStats.css";
+import "../css/soccerCss/LeagueStats.css";
 
 const LeagueStats = () => {
   let { id } = useParams();
@@ -56,7 +56,7 @@ const LeagueStats = () => {
   }, [id]);
 
   return (
-    <div className="page">
+    <div className="mainLeagueStats">
       <MainLayout>
         <h1> {leagueInfo.name} 2022/2023 Top Goal Scorers and Top Assisters</h1>
         <div>

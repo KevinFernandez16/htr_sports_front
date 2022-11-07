@@ -1,0 +1,28 @@
+html{
+    height: 100%;
+}
+
+td, th {
+    border: 1px solid #020202;
+    padding: 8px;
+
+  }
+
+h1 {
+    text-align: center;
+}
+
+tbody {
+    width: 45%; 
+    /* background-color:  #020202ae; */
+
+}
+
+.mainLeagueStats {
+    min-height: 140vh;
+    background-color:  #020202ae;
+}
+
+body{
+    min-height: 100%;
+}

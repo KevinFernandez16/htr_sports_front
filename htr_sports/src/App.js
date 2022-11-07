@@ -1,4 +1,4 @@
-// import Header from './components/header'
+import Header from './components/header'
 import Team from './pages/team'
 import Player from './pages/player'
 import Home from './pages/home'
@@ -14,8 +14,9 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Link
 } from "react-router-dom";
-import LeagueStats from './pages/SoccerPages/LeagueStats.css'
+import LeagueStats from './pages/SoccerPages/LeagueStats'
 import Error from './pages/Error'
 
 

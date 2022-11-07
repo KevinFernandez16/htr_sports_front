@@ -92,7 +92,8 @@ nav a:hover::before{
 /* TODO: REMOVE THIS EXAMPLE */
 .page {
 
-  height: 100%;
+  margin: 0px;
+  padding: 0px;
   font-size: 25px;
   background-color:  #BCC6CC;
 }
