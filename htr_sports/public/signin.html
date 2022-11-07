@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <!--<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />-->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <script type="text/javascript" src="message.js"></script>
-  <meta
-  name="description"
-  content="Web site created using create-react-app"
-  />
-  <!--<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />-->
-  <!--
-  manifest.json provides metadata used when your web app is installed on a
-  user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
--->
-<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-<!--
-Notice the use of %PUBLIC_URL% in the tags above.
-It will be replaced with the URL of the `public` folder during the build.
-Only files inside the `public` folder can be referenced from the HTML.
 
-Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-work correctly both with client-side routing and a non-root public URL.
-Learn how to configure a non-root public URL by running `npm run build`.
--->
-<title>Sign Up</title>
+    <title>HTR Sports - Sign Up Page </title>
+    <link rel="stylesheet" href="/src/signin.css"/>
 </head>
+<!-- Our header is being changed from localhost to HTR Sports - Sign Up Page -->
 
 <body>
 
-  <ul>
-    <li><a href="#huntersports">Hunter Sports</a></li>
-    <li><a href="soccer.html">Soccer</a></li>
-    <li><a href="basketball.html">Basketball</a></li>
-    <li><a href="fantasy.html">Fantasy</a></li>
-    <li><a href="forum.html">Forum</a></li>
-    <li><a href="findgame.html">Find a Game</a></li>
-    <li><a href="signin.html">Sign In</a></li>
-    <li><a href="#search">Search</a></li>
-  </ul>
+    <div class = "sign-up-form">
+        <h1>Sign Up</h1>
+        <!-- Creating our Sign up container -->
+        <form action = "index.html">
+            <div class = "form-item-username">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                <!-- Creating the text boxes for First name and Last name -->
+            </div>
 
-  <h4>V 2.1</h4>
+            <div class = "form-email">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <!-- Creating Email text box -->
+            </div>
 
+            <div class = "form-phone">
+                <input type="tel" name="phonenumber" id="phonenumber" placeholder="Phone Number">
+                <!-- Creating text box for user's phone numbers -->
+            </div>
 
+            <div class = "form-password">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <!-- Creating text box for user's to enter their password -->
+            </div>
+
+            <div class = "terms-and-agreement">
+                <input type="checkbox" name="accept" id="accept">
+                <p>I agree and have read the <a href="#">Terms & Conditions</a></p>
+                <!-- Creating our accepting box for the Terms and Agreements -->
+            </div>
+
+            <div class = "form-button">
+                <button class="signUp" type="Submit">Sign Up</button>
+                <!-- Creating the Sign Up button for user's to submit all their entered information -->
+                <div class = "having-an-account">
+                    <p>Already have an account ? <a href="#">Login Here</a></p>
+                    <!-- If a user has an account made already, they can log in throught our log in page  -->
+                </div>
+            </div>
+        </form>
+    </div>
 
 </body>
-
 </html>
