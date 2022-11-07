@@ -3,7 +3,7 @@ import { MainLayout } from "./mainLayout";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { Link } from "react-router-dom";
-import "../pages/css/soccer.css";
+import "../pages/css/soccerCss/soccer.css";
 // import LiveScoreWidget from "../components/LiveScoreWidget"
 
 const Soccer = () => {
