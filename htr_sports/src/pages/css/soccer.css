@@ -1,0 +1,29 @@
+.mainSoccer {
+    height: auto;
+    width: auto;
+    background-color:  #020202ae;
+}
+
+.mainHeader {
+    text-align: center;
+}
+
+.soccerSearchBar {
+    align-items: center;
+}
+
+.soccerButton {
+display: block;
+margin: 0 auto;
+width: 150px;
+}
+
+.headerTwo {
+    text-align: center;
+}
+
+.Dropdown {
+    text-align: center;
+    color: #020202ae;
+    background: transparent;
+}

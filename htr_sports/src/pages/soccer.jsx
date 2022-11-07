@@ -3,6 +3,7 @@ import { MainLayout } from "./mainLayout";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { Link } from "react-router-dom";
+import "../pages/css/soccer.css";
 // import LiveScoreWidget from "../components/LiveScoreWidget"
 
 const Soccer = () => {
@@ -62,9 +63,9 @@ const Soccer = () => {
   }, [searchTerm]);
 
   return (
-    <div className="page">
+    <div className="mainSoccer">
       <MainLayout>
-        <div>
+        <div className="mainHeader">
           <Link to="/soccer/Livescore">
             <h3
               style={{
@@ -75,24 +76,29 @@ const Soccer = () => {
             </h3>
           </Link>
         </div>
-        <h1>Search the country of your league</h1>
-        <input
-          value={inputSearch}
-          onChange={(event) => {
-            const text = event.target.value;
-            setInputSearch(text);
-          }}
-        />
-        <button
-          onClick={(event) => {
-            setSearchTerm(inputSearch);
-          }}
-        >
-          Search
-        </button>
+        <div className="soccerSearchBar">
+          <h1>Search the country of your league</h1>
+          <input
+            className="soccerButton"
+            value={inputSearch}
+            onChange={(event) => {
+              const text = event.target.value;
+              setInputSearch(text);
+            }}
+          />
+          <button
+            className="soccerButton"
+            onClick={(event) => {
+              setSearchTerm(inputSearch);
+            }}
+          >
+            Search Country
+          </button>
+        </div>
         <div>
-          <h2>Find your league</h2>
+          <h2 className="headerTwo">Find your league</h2>
           <Dropdown
+            className="Dropdown"
             options={leagueList}
             onChange={(item) => {
               setleagueID(item.value);
@@ -107,6 +113,7 @@ const Soccer = () => {
               standings.map((standing) => {
                 return (
                   <div
+                    className=""
                     key={standing.team.id}
                     style={{
                       display: "flex",
