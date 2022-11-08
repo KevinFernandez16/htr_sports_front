@@ -36,7 +36,7 @@ const FindGame = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": '5059162118mshc58ff3e3e67564ap1eea11jsn00e6db6f48d7',//import api key
+        "X-RapidAPI-Key": '',//import api key
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
       },
     };
