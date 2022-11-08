@@ -1,7 +1,6 @@
 import { MainLayout } from "./mainLayout";
 import {render} from "react-dom";
 import React, { Component } from "react";
-import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
 import { useEffect, useState } from "react"; //importing the hooks
 //geolocation begin
 class App extends Component {
