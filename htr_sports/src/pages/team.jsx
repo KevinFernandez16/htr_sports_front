@@ -2,8 +2,7 @@ import { MainLayout } from "./mainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../pages/css/soccerCss/soccerTeam.css"
-
+import "../pages/css/soccerCss/soccerTeam.css";
 
 const Team = () => {
   let { id } = useParams();
@@ -36,32 +35,41 @@ const Team = () => {
   }, [id]);
 
   return (
-    <div className="mainTeam">
+    <div>
       <MainLayout>
-        <div>
+        <div className="mainTeam">
           {team.logo && <img src={team.logo} alt="Team Logo" />}
-          <div>
-            <p>{team.name} Players 2022/2023 </p>
+          <p>{team.name} Players 2022/2023 </p>
 
+          <tbody>
+            <tr>
+              <th>Player Image</th>
+              <th>Player Name</th>
+              <th>Number</th>
+              <th>Position</th>
+              <th>Age</th>
+            </tr>
             {players.length > 0 &&
-              players.map((players) => {
-                return (
-                  <div key={players.id}>
-                    <div>
-                      {players.photo && (
-                        <img src={players.photo} alt="Player Logo" />
-                      )}
-                      <Link to={`/soccer/player/${players.id}`}>
-                        <h1>{players.name}</h1>
-                      </Link>
-                      <p>Number: {players.number}</p>
-                      <p>Position: {players.position}</p>
-                      <p>Age: {players.age}</p>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
+              players.map((players, i) => (
+                <tr key={i}>
+                  <td>
+                    <img
+                      className="photo"
+                      src={players.photo}
+                      alt="Player Logo"
+                    />{" "}
+                  </td>
+                  <td>
+                    <Link to={`/soccer/player/${players.id}`}>
+                      {players.name}
+                    </Link>
+                  </td>
+                  <td>{players.number}</td>
+                  <td>{players.position}</td>
+                  <td>{players.age}</td>
+                </tr>
+              ))}
+          </tbody>
         </div>
       </MainLayout>
     </div>
