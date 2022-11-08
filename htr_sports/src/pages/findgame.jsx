@@ -1,6 +1,34 @@
 import { MainLayout } from "./mainLayout";
-
+import {render} from "react-dom";
+import React, { Component } from "react";
+import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
 import { useEffect, useState } from "react"; //importing the hooks
+//geolocation begin
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+
+    };
+  }
+
+  componentDidMount(){
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+    });
+  }
+
+  render(){
+    return(
+      <div>
+        <h4></h4>
+      </div>
+    );
+  }
+}
+render(<App />, document.getElementById("root"));
+//geolocation end
 
 const FindGame = () => {
   const [venue, setVenue] = useState();
@@ -16,7 +44,7 @@ const FindGame = () => {
 
     if (!venue) {
       fetch(
-        "https://api-football-v1.p.rapidapi.com/v3/venues?country=Ecuador%22",//grab from api
+        "https://api-football-v1.p.rapidapi.com/v3/venues?country=Ecuador",//grab from api
         options
       )
         .then((response) => response.json())
@@ -50,5 +78,5 @@ const FindGame = () => {
     </div>
   );
 };
-
 export default FindGame;
+
