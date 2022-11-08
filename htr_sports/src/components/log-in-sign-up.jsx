@@ -11,7 +11,7 @@ const LogInOverlay = ({ isOpen, onClose }) => {
             {/* <div>LOGIN FORM HERE</div>  */}
             <div className='container-login'>
                 <div class = "center">
-                    <h1>Login</h1>
+                    <h1 className='login-title'>Login</h1>
                     <form method="post">
                         <div class="txt_field">
                             <input type="text" required />

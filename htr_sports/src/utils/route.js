@@ -27,21 +27,21 @@
 // ]
 
 const Paths = {
-    home: {
-        path: '/',
-        name: 'Hunter Sports'
+    home: { 
+        name: 'Hunter Sports',
+        path: '/' 
     },
     soccer: {
         name: 'Soccer',
-        path: '/soccer'
+        path: '/soccer' 
     },
     basketball: {
         name: 'Basketball',
-        path: '/basketball'
+        path: '/basketball' 
     },
     fantasy: {
         name: 'Fantasy',
-        path: '/fantasy'
+        path: '/fantasy' 
     },
     forum: {
         name: 'Forum',
@@ -51,6 +51,7 @@ const Paths = {
         name: 'Find Game',
         path: '/findgame'
     }
+
 
 };
 

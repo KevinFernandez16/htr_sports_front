@@ -7,6 +7,7 @@ const customStyles = {
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
+      background: '#171717',
       transform: 'translate(-50%, -50%)',
  
     },
