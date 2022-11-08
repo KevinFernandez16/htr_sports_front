@@ -1,12 +1,12 @@
 .mainSoccer {
     margin: 0px;
     padding: 0px;
-    height: 175vh;
-    background-color:  #020202ae;
+    background-color:  #151414f0;
 }
 
 .mainHeader {
     text-align: center;
+    color: aliceblue;
 }
 
 .soccerSearchBar {
@@ -20,6 +20,7 @@ width: 150px;
 }
 
 .headerTwo {
+    color: #ec6a00;
     text-align: center;
 }
 
@@ -27,4 +28,12 @@ width: 150px;
     text-align: center;
     color: #020202ae;
     background: transparent;
+}
+
+.headerOne {
+    color: #ec6a00;
+}
+
+.topHeader {
+    color: #ec6a00;
 }

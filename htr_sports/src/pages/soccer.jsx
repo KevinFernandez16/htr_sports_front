@@ -67,7 +67,7 @@ const Soccer = () => {
       <MainLayout>
         <div className="mainHeader">
           <Link to="/soccer/Livescore">
-            <h3
+            <h3 className="topHeader"
               style={{
                 fontSize: "xxx-large",
               }}
@@ -77,7 +77,7 @@ const Soccer = () => {
           </Link>
         </div>
         <div className="soccerSearchBar">
-          <h1>Search the country of your league</h1>
+          <h1 className="headerOne">Search the country of your league</h1>
           <input
             className="soccerButton"
             value={inputSearch}

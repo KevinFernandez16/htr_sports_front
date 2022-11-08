@@ -4,25 +4,42 @@ html{
 
 td, th {
     border: 1px solid #020202;
-    padding: 8px;
+    padding: 10px;
 
   }
 
 h1 {
     text-align: center;
+    color: #ec6a00;
 }
 
 tbody {
     width: 45%; 
-    /* background-color:  #020202ae; */
+    color: #ec6a00;
 
 }
 
 .mainLeagueStats {
     min-height: 140vh;
-    background-color:  #020202ae;
+    background-color:  #ffffffae;
 }
 
 body{
     min-height: 100%;
+}
+
+.left {
+    display: inline;
+    color: #ec6a00;
+
+}
+
+.right {
+    display: inline;
+    color: #ec6a00;
+    padding-left: 60%
+}
+
+.headerTwo {
+  font-size: xx-large;
 }

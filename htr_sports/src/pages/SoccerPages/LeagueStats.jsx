@@ -60,23 +60,9 @@ const LeagueStats = () => {
       <MainLayout>
         <h1> {leagueInfo.name} 2022/2023 Top Goal Scorers and Top Assisters</h1>
         <div>
-          <h2>
-            <p
-              style={{
-                textAlignLast: "left",
-                paddingLeft: 400,
-              }}
-            >
-              Top Scorers
-            </p>
-            <p
-              style={{
-                textAlignLast: "right",
-                paddingRight: 300,
-              }}
-            >
-              Top Assisters
-            </p>
+          <h2 className="headerTwo">
+            <p className="left">Top Scorers</p>
+            <p className="right">Top Assisters</p>
           </h2>
           <tbody
             style={{
