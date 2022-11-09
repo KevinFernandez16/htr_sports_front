@@ -41,12 +41,10 @@ export default function Home(){
 
 function Map(){
   return(
-    <div classname = "measure">
     <GoogleMap
     zoom = {10}
-    center = {{lat: 44, lng: -80}}
+    center = {{lat: 40.7498916, lng: -73.8771786}}
     mapContainerClassName = "measure"
     ></GoogleMap>
-    </div>
   );
 }
