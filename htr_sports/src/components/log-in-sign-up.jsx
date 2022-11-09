@@ -4,8 +4,6 @@ import './log-in-sign-up.css';
 
 const LogInOverlay = ({ isOpen, onClose }) => {
 
-    const initialValues = {username:"", password:""};
-    const [formValues, setFormValues] = useState(initialValues);
 
     return (
         <Overlay isOpen={isOpen}>
