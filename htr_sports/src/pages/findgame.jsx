@@ -43,7 +43,7 @@ const FindGame = () => {
 
     if (!venue) {
       fetch(
-        "https://api-football-v1.p.rapidapi.com/v3/venues?country=Ecuador",//grab from api
+        "https://api-football-v1.p.rapidapi.com/v3/venues?country=USA",//grab from api
         options
       )
         .then((response) => response.json())
@@ -68,7 +68,10 @@ const FindGame = () => {
                   <h1>{venue.address} </h1>
                   <p> {venue.name} </p>
                   <p> {venue.id}</p>
+                  <p> {venue.city}</p>
                   <p> {venue.country}</p>
+                  <p> {venue.capacity}</p>
+                  
                 </div>
               );
             })}
