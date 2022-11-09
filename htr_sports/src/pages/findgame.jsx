@@ -1,5 +1,5 @@
 import {useMemo} from "react";
-import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api";
+import {GoogleMap, useLoadScript, MarkerF} from "@react-google-maps/api";
 import {render} from "react-dom";
 import React, { Component } from "react";
 import "./findgame.css";
@@ -32,7 +32,7 @@ render(<App />, document.getElementById("root"));
 
 export default function Home(){
   const {isLoaded} = useLoadScript({
-    googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
+    googleMapsApiKey:"",
   });
 
   if(!isLoaded) return <div>Error</div>;
@@ -40,11 +40,14 @@ export default function Home(){
 }
 
 function Map(){
+  const center = useMemo(() => ({lat: 40.7498916, lng: -73.8771786}), []);
   return(
     <GoogleMap
     zoom = {10}
-    center = {{lat: 40.7498916, lng: -73.8771786}}
+    center = {center}
     mapContainerClassName = "measure"
-    ></GoogleMap>
+    >
+      <MarkerF position= {{lat: 40.7498916, lng: -73.8771786}} />
+    </GoogleMap>
   );
 }
