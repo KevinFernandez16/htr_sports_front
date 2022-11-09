@@ -41,7 +41,7 @@ const Team = () => {
           {team.logo && <img src={team.logo} alt="Team Logo" />}
           <p>{team.name} Players 2022/2023 </p>
 
-          <tbody>
+          <tbody className="id">
             <tr>
               <th>Player Image</th>
               <th>Player Name</th>

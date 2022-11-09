@@ -3,8 +3,12 @@
     padding: 0px;
     background-color:  #ffffffae;
     text-align: center;
-    align-content: center;
-    align-items: center;
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    
+    width:200px;
+    height:200px;
 }
 
 td, th {
@@ -20,7 +24,12 @@ h1 {
 
 tbody {
     color: #ec6a00;
-    align-items: center;
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    
+    width:200px;
+    height:200px;
 
 }
 
@@ -29,6 +38,3 @@ tbody {
     width: 75px;
 }
 
-.tableBody {
-    float:right;
-}
