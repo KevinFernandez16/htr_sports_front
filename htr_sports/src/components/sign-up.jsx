@@ -4,7 +4,7 @@ import './sign-up.css';
 
 
 const SignUpOverlay = ({ isOpen, onClose }) => {
-
+        
 
     return (
         <Overlay isOpen={isOpen} >
