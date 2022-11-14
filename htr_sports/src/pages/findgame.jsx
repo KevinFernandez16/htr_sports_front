@@ -1,8 +1,12 @@
-import {useMemo} from "react";
+import {useState, useMemo} from "react";
 import {GoogleMap, useLoadScript, MarkerF} from "@react-google-maps/api";
 import {render} from "react-dom";
 import React, { Component } from "react";
 import "./findgame.css";
+import usePlacesAutocomplete,{getGeocode, getLatLng,}from "use-places-autocomplete";
+import{Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption,} from "@reach/combobox";
+import "@reach/combobox/styles.css";
+
 //geolocation begin
 class App extends Component {
   constructor(props){
@@ -32,7 +36,8 @@ render(<App />, document.getElementById("root"));
 
 export default function Home(){
   const {isLoaded} = useLoadScript({
-    googleMapsApiKey:"",
+    googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
+    libraries: ["places"],
   });
 
   if(!isLoaded) return <div>Error</div>;
@@ -41,13 +46,31 @@ export default function Home(){
 
 function Map(){
   const center = useMemo(() => ({lat: 40.7498916, lng: -73.8771786}), []);
+  const [selected, setSelected] = useState(null);
   return(
+    <>
+    <div className = "places-container">
+      <PlacesAutocomplete setSelected={setSelected}/>
+    </div>
+  
     <GoogleMap
     zoom = {10}
     center = {center}
     mapContainerClassName = "measure"
     >
-      <MarkerF position= {{lat: 40.7498916, lng: -73.8771786}} />
+      {selected && <MarkerF position= {selected} />}
     </GoogleMap>
+    </>
+  );
+}
+
+const PlacesAutocomplete = ({setselected}) => {
+  const{ ready, value, setValue, suggestions: {status, data}, clearSuggestions,} = usePlacesAutocomplete();
+
+  return (<Combobox>
+    <ComboboxInput value = {value} onChange = {event => setValue(event.target.value)} disabled = {!ready}
+    className = "comboinput" placeholder = "Search"
+    />
+  </Combobox>
   );
 }
