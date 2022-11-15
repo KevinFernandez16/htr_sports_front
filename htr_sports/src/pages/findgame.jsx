@@ -64,10 +64,20 @@ function Map(){
   );
 }
 
-const PlacesAutocomplete = ({setselected}) => {
+const PlacesAutocomplete = ({setSelected}) => {
   const{ ready, value, setValue, suggestions: {status, data}, clearSuggestions,} = usePlacesAutocomplete();
 
-  return (<Combobox>
+  const handleSelect = async(address) => {
+    setValue(address, false);
+    clearSuggestions();
+
+    const results = await getGeocode({address});
+    const {lat, lng} = await getLatLng(results[0]);
+    setSelected({lat, lng});
+
+  };
+
+  return (<Combobox onSelect ={handleSelect} >
     <ComboboxInput value = {value} onChange = {event => setValue(event.target.value)} disabled = {!ready}
     className = "comboinput" placeholder = "Search"
     />
