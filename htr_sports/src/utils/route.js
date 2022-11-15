@@ -43,6 +43,10 @@ const Paths = {
         name: 'Fantasy',
         path: '/fantasy' 
     },
+    worldCup: {
+        name: 'World Cup',
+        path: '/worldcup'  
+    },
     forum: {
         name: 'Forum',
         path: '/forum'
