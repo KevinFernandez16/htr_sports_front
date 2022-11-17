@@ -23,7 +23,7 @@ const useFetch = (url, params, options) => {
           setLoading(false);
         });
     };
-  
+
     useEffect(() => {
       if (!options?.disabled) {
         fetch();
@@ -32,5 +32,5 @@ const useFetch = (url, params, options) => {
   
     return { data, loading, error, refetch: fetch };
   }
-  
+
   export default useFetch;
