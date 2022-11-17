@@ -1,6 +1,5 @@
 import Header from './components/header'
 import Team from './pages/team'
-import ForumPage from './pages/forumpage'
 import Player from './pages/player'
 import Home from './pages/home'
 import Soccer from './pages/soccer'
@@ -36,7 +35,6 @@ function App() {
           <Route path={Paths.basketball.path} element={<Basketball />} />
           <Route path={Paths.fantasy.path} element={<Fantasy />} />
           <Route path={Paths.forum.path} element={<Forum />} />
-          <Route path={`${Paths.forum.path}/forumpage/:id`} element={<ForumPage />} />
           <Route path={Paths.findGame.path} element={<FindGame />} />
           <Route path="*" element={<Error />} />
           {/* <Route path={Paths[1].path} element={<Soccer />} />
