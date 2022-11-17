@@ -44,6 +44,7 @@ function CreatePost(){
        Title: title.value,
        Body: body.value,
        Owner: user.uid,
+       ReplyCount: '0',
    })
    .then(()=>{
        alert("Posted successfully");
@@ -59,33 +60,35 @@ async function readData(){
     var title = document.getElementById("title");
     var body = document.getElementById("body");
     var forum = document.getElementById("forum");
-    const user = auth.currentUser;
-    const dbRef = ref(db);
-    get(child(dbRef, `Posts/`)).then((snapshot) => {
-    if (snapshot.exists()) {
-        //console.log(snapshot.val());
-        for (var key in snapshot.val()){
-          console.log(snapshot.val()[key]);
-          const title = document.createElement("a");
-          title.setAttribute('class','text');
-          title.setAttribute('href','/forum/forumpage/'+key);
-          console.log('/forum/forumpage/'+key)
-          title.innerHTML = "Post: "+snapshot.val()[key].Title;
-          const post = document.createElement("dd");
-          post.innerHTML = snapshot.val()[key].Body;
-          post.setAttribute('class','text')
-          const linebreaker = document.createElement("dt")
-          linebreaker.innerHTML = "_________________________________________________________________________________________________"
-          forum.appendChild(title);
-          forum.appendChild(post);
-          forum.appendChild(linebreaker);
+    if (forum != null){
+      const user = auth.currentUser;
+      const dbRef = ref(db);
+      get(child(dbRef, `Posts/`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          //console.log(snapshot.val());
+          for (var key in snapshot.val()){
+            console.log(snapshot.val()[key]);
+            const title = document.createElement("a");
+            title.setAttribute('class','text');
+            title.setAttribute('href','/forum/forumpage/'+key);
+            console.log('/forum/forumpage/'+key)
+            title.innerHTML = "Post: "+snapshot.val()[key].Title;
+            const post = document.createElement("dd");
+            post.innerHTML = snapshot.val()[key].Body;
+            post.setAttribute('class','text')
+            const linebreaker = document.createElement("dt")
+            linebreaker.innerHTML = "_________________________________________________________________________________________________"
+            forum.appendChild(title);
+            forum.appendChild(post);
+            forum.appendChild(linebreaker);
+          }
+        } else {
+          console.log("No data available");
         }
-    } else {
-    console.log("No data available");
-}
-    }).catch((error) => {
-    console.error(error);
-    });
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
 }
 
 onAuthStateChanged(auth, (user) => {
