@@ -31,14 +31,6 @@
   box-sizing: border-box;
 }
 
-.reply_box{
-  width: 40%;
-  height: 150px;
-  padding: 12px 20px;
-  margin: 20px 0;
-  box-sizing: border-box;
-}
-
 .button {
   background-color: #ec6a00; /* Green */
   border: none;
