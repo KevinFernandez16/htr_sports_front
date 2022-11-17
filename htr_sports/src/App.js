@@ -1,8 +1,11 @@
 import Header from './components/header'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Team from './pages/team'
 import ForumPage from './pages/forumpage'
 import Player from './pages/player'
+=======
+>>>>>>> parent of 602fdd4 (Merged other people's stuff)
 =======
 >>>>>>> parent of 602fdd4 (Merged other people's stuff)
 import Home from './pages/home'
@@ -31,9 +34,12 @@ function App() {
           <Route path={Paths.fantasy.path} element={<Fantasy />} />
           <Route path={Paths.forum.path} element={<Forum />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Route path={`${Paths.forum.path}/forumpage/:id`} element={<ForumPage />} />
           <Route path={Paths.findGame.path} element={<FindGame />} />
           <Route path="*" element={<Error />} />
+=======
+>>>>>>> parent of 602fdd4 (Merged other people's stuff)
 =======
 >>>>>>> parent of 602fdd4 (Merged other people's stuff)
           {/* <Route path={Paths[1].path} element={<Soccer />} />
