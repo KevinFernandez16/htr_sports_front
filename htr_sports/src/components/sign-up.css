@@ -4,7 +4,9 @@
 form .txt_field_signup{
   position: relative;
   border-bottom: 2px solid #adadad;
-  margin: 20px 0;
+  margin: 25px 25px;
+  margin-top: 25px;
+  width: 80%;
 }
 .txt_field_signup input{
   width: 100%;
@@ -14,16 +16,18 @@ form .txt_field_signup{
   border: none;
   background: none;
   outline: none;
+  color: #ec6a00;
 }
 
 .sign-up-form
 {
-    width: 300px;
+    width: 40vh;
+    height: 60vh;
     /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); */
     padding: 20px;
     margin: 8% auto 0;
     text-align: center;
-    background: white;
+    background: #171717;
     /* border-radius: 10px; */
     /* box-shadow: 10px 10px 15px rgba(0,0,0,0.05); */
 }
@@ -34,7 +38,7 @@ form .txt_field_signup{
 
 .form-item-username-firstName{
   padding-bottom: 5px;
-
+  
 }
 
 .form-item-username-lastName{
@@ -60,8 +64,13 @@ form .txt_field_signup{
   border: 1px solid;
   border-radius: 25px;
   font-size: 15px;
-  color: #e9f4fb;
+  color: #ec6a00;
   background: #28282B;
+}
+
+.signup-title{
+  font-family: 'Black Ops One', cursive;
+  color: #ec6a00;
 }
 
 /* .signUp:hover{
@@ -95,5 +104,14 @@ form .txt_field_signup{
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid silver;
+
+}
+
+p{
+  color: red;
+  font-size: .7rem;
+  display: flex;
+  padding-left: 1.5625rem;
+  align-items: left;
 }
 

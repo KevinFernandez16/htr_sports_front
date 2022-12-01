@@ -6,6 +6,7 @@ import Home from './pages/home'
 import Soccer from './pages/soccer'
 import Basketball from './pages/basketball'
 import Fantasy from './pages/fantasy'
+import WorldCup from './pages/worldcup'
 import Forum from './pages/forum'
 import FindGame from './pages/findgame'
 import Paths from './utils/route'
@@ -17,7 +18,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import LeagueStats from './pages/SoccerPages/LeagueStats.css'
+import LeagueStats from './pages/SoccerPages/LeagueStats'
 import Error from './pages/Error'
 
 
@@ -34,7 +35,8 @@ function App() {
           <Route path={`${Paths.soccer.path}/Livescore`} element={<WidgetPage />} />
           <Route path={`${Paths.soccer.path}/LeagueStats/:id`} element={<LeagueStats />} />
           <Route path={Paths.basketball.path} element={<Basketball />} />
-          <Route path={Paths.fantasy.path} element={<Fantasy />} />
+          {/* <Route path={Paths.fantasy.path} element={<Fantasy />} /> */}
+          <Route path={Paths.worldCup.path} element={<WorldCup />} />
           <Route path={Paths.forum.path} element={<Forum />} />
           <Route path={`${Paths.forum.path}/forumpage/:id`} element={<ForumPage />} />
           <Route path={Paths.findGame.path} element={<FindGame />} />
