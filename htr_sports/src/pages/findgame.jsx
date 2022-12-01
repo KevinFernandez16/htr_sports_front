@@ -1,4 +1,5 @@
 import {useState, useMemo} from "react";
+import { MainLayout } from "./mainLayout";
 import {GoogleMap, useLoadScript, MarkerF} from "@react-google-maps/api";
 import {render} from "react-dom";
 import React, { Component } from "react";
@@ -33,7 +34,6 @@ class App extends Component {
 }
 render(<App />, document.getElementById("root"));
 //geolocation end
-
 export default function Home(){
   const {isLoaded} = useLoadScript({
     googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
@@ -76,8 +76,9 @@ const PlacesAutocomplete = ({setSelected}) => {
     setSelected({lat, lng});
 
   };
-
-  return (<Combobox onSelect ={handleSelect} >
+  return (
+    <MainLayout>
+  <Combobox onSelect ={handleSelect} >
     <ComboboxInput value = {value} onChange = {event => setValue(event.target.value)} disabled = {!ready}
     className = "comboinput" placeholder = "Search"
     />
@@ -89,5 +90,6 @@ const PlacesAutocomplete = ({setSelected}) => {
       </ComboboxList>
     </ComboboxPopover>
   </Combobox>
+  </MainLayout>
   );
 }
