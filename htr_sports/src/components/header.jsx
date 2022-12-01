@@ -31,7 +31,8 @@ const Header = () => {
                         <HeaderItem name={Paths.home.name} path={Paths.home.path}/>
                         <HeaderItem name={Paths.soccer.name} path={Paths.soccer.path}/>
                         <HeaderItem name={Paths.basketball.name} path={Paths.basketball.path}/>
-                        <HeaderItem name={Paths.fantasy.name} path={Paths.fantasy.path}/>
+                        {/* <HeaderItem name={Paths.fantasy.name} path={Paths.fantasy.path}/> */}
+                        <HeaderItem name={Paths.worldCup.name} path={Paths.worldCup.path}/>
                         <HeaderItem name={Paths.forum.name} path={Paths.forum.path}/>
                         <HeaderItem name={Paths.findGame.name} path={Paths.findGame.path}/>
                         <SignUp/>

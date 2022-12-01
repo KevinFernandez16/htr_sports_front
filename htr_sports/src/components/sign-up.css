@@ -4,7 +4,9 @@
 form .txt_field_signup{
   position: relative;
   border-bottom: 2px solid #adadad;
-  margin: 20px 0;
+  margin: 25px 25px;
+  margin-top: 25px;
+  width: 80%;
 }
 .txt_field_signup input{
   width: 100%;
@@ -19,7 +21,8 @@ form .txt_field_signup{
 
 .sign-up-form
 {
-    width: 300px;
+    width: 40vh;
+    height: 60vh;
     /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); */
     padding: 20px;
     margin: 8% auto 0;
@@ -101,5 +104,14 @@ form .txt_field_signup{
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid silver;
+
+}
+
+p{
+  color: red;
+  font-size: .7rem;
+  display: flex;
+  padding-left: 1.5625rem;
+  align-items: left;
 }
 
