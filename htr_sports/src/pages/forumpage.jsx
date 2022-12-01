@@ -67,7 +67,6 @@ function deletePost(key){
 
 async function readData(){
   const user = auth.currentUser;
-  console.log("pageid is ",{ page_id });
   const post = document.getElementById("post");
   const dbref = ref(db);
   get(child(dbref, "Posts/" + page_id))
