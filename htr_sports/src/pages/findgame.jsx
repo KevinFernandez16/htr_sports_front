@@ -1,4 +1,4 @@
-import {useState, useMemo} from "react";
+import {useState} from "react";
 import { MainLayout } from "./mainLayout";
 import {GoogleMap, useLoadScript, MarkerF} from "@react-google-maps/api";
 import {render} from "react-dom";
@@ -7,6 +7,7 @@ import "./findgame.css";
 import usePlacesAutocomplete,{getGeocode, getLatLng,}from "use-places-autocomplete";
 import{Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption,} from "@reach/combobox";
 import "@reach/combobox/styles.css";
+
 
 //geolocation begin
 class App extends Component {
@@ -38,24 +39,28 @@ export default function Home(){
   const {isLoaded} = useLoadScript({
     googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
     libraries: ["places"],
-  });
+  })
+
 
   if(!isLoaded) return <div>Error</div>;
   return <Map />;
 }
 
 function Map(){
-  const center = useMemo(() => ({lat: 40.7498916, lng: -73.8771786}), []);
+  const [position, setPosition] = useState({lat: 40.7498916, lng: -73.8771786});
   const [selected, setSelected] = useState(null);
   return(
     <>
+    <div style ={{position:'absolute', top:52, right:903}}>
+    <button onClick={() => setPosition({lat: 40.7498916, lng: -73.8771786})}>Center</button>
+    </div>
     <div className = "places-container">
       <PlacesAutocomplete setSelected={setSelected}/>
     </div>
   
     <GoogleMap
-    zoom = {10}
-    center = {center}
+    zoom = {15}
+    center = {position}
     mapContainerClassName = "measure"
     >
       {selected && <MarkerF position= {selected} />}
@@ -91,5 +96,6 @@ const PlacesAutocomplete = ({setSelected}) => {
     </ComboboxPopover>
   </Combobox>
   </MainLayout>
+  
   );
 }
