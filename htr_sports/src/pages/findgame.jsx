@@ -1,13 +1,9 @@
-import {useState, useMemo} from "react";
 import { MainLayout } from "./mainLayout";
-import {GoogleMap, useLoadScript, MarkerF} from "@react-google-maps/api";
+import {GoogleMap,useJsApiLoader, MarkerF, Autocomplete, DirectionsRenderer,} from "@react-google-maps/api";
 import {render} from "react-dom";
-import React, { Component } from "react";
+import React, { Component, useState, useRef } from "react";
+import { Box } from '@material-ui/core';
 import "./findgame.css";
-import usePlacesAutocomplete,{getGeocode, getLatLng,}from "use-places-autocomplete";
-import{Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption,} from "@reach/combobox";
-import "@reach/combobox/styles.css";
-
 //geolocation begin
 class App extends Component {
   constructor(props){
@@ -34,62 +30,83 @@ class App extends Component {
 }
 render(<App />, document.getElementById("root"));
 //geolocation end
-export default function Home(){
-  const {isLoaded} = useLoadScript({
+function Map(){
+  const {isLoaded} = useJsApiLoader({
     googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
-    libraries: ["places"],
-  });
+    libraries: ['places'],
+  })
+  const [distance, setDistance] = useState('');
+  const [duration, setDuration] = useState('');
+  const [direction ,setDirection] = useState(null);
+  const [position, setPosition] = useState({lat: 40.74988916, lng: -73.8771786});
 
-  if(!isLoaded) return <div>Error</div>;
-  return <Map />;
+  const originRef = useRef()
+  const destinationRef = useRef()
+
+
+
+  if(!isLoaded){
+    return
+  }
+
+async function calculateRoute(){
+  if (originRef.current.value === '' || destinationRef.current.value === '') {
+    return
+}
+  // eslint-disable-next-line no-undef
+  const directionsService = new google.maps.DirectionsService()
+  const results = await directionsService.route({
+    origin: originRef.current.value,
+    destination: destinationRef.current.value,
+    // eslint-disable-next-line no-undef
+    travelMode: google.maps.TravelMode.DRIVING,
+  
+  })
+  setDirection(results)
+  setDistance(results.routes[0].legs[0].distance.text)
+  setDuration(results.routes[0].legs[0].duration.text)
 }
 
-function Map(){
-  const center = useMemo(() => ({lat: 40.7498916, lng: -73.8771786}), []);
-  const [selected, setSelected] = useState(null);
   return(
+<MainLayout>
     <>
-    <div className = "places-container">
-      <PlacesAutocomplete setSelected={setSelected}/>
+    <div style ={{position:'absolute', top:60, right:300}}>
+    <button onClick={() => setPosition({lat: 40.74988916, lng: -73.8771786})}>Back to Center</button>
     </div>
-  
-    <GoogleMap
-    zoom = {10}
-    center = {center}
+    <div style ={{position:'absolute', top:80, right:300}}>
+    <button type = 'submit' onClick = {calculateRoute}>Calculate Route</button>
+    </div>
+    <div style ={{position:'absolute', top:100, right:300}}>
+    <text>Distance: {distance}</text>
+    </div>
+    <div style ={{position:'absolute', top:120, right:300}}>
+    <text>Amount of Time: {duration}</text>
+    </div>
+
+
+  <GoogleMap
+    zoom = {15}
+    center = {position}
     mapContainerClassName = "measure"
     >
-      {selected && <MarkerF position= {selected} />}
-    </GoogleMap>
+      <MarkerF position = {position}/>
+      {direction  && (
+        <DirectionsRenderer directions = {direction}/>)}
+
+  </GoogleMap>
     </>
+  <Box style ={{position:'absolute', top:55, right:720}}>
+    <Autocomplete>
+      <input type = 'text' placeholder = 'Start' ref = {originRef}/>
+    </Autocomplete>
+  </Box>
+
+  <Box style ={{position:'absolute', top:75, right:720}}>
+    <Autocomplete>
+      <input type = 'text' placeholder = 'Destination' ref = {destinationRef}/>
+    </Autocomplete>
+  </Box>
+</MainLayout>
   );
 }
-
-const PlacesAutocomplete = ({setSelected}) => {
-  const{ ready, value, setValue, suggestions: {status, data}, clearSuggestions,} = usePlacesAutocomplete();
-
-  const handleSelect = async(address) => {
-    setValue(address, false);
-    clearSuggestions();
-
-    const results = await getGeocode({address});
-    const {lat, lng} = await getLatLng(results[0]);
-    setSelected({lat, lng});
-
-  };
-  return (
-    <MainLayout>
-  <Combobox onSelect ={handleSelect} >
-    <ComboboxInput value = {value} onChange = {event => setValue(event.target.value)} disabled = {!ready}
-    className = "comboinput" placeholder = "Search"
-    />
-    <ComboboxPopover>
-      <ComboboxList>
-        {status == "OK" && data.map(({place_id, description}) => (<ComboboxOption key = {place_id}
-        value = {description} />
-        ))}
-      </ComboboxList>
-    </ComboboxPopover>
-  </Combobox>
-  </MainLayout>
-  );
-}
+export default Map
