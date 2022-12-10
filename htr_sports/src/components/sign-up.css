@@ -21,8 +21,8 @@ form .txt_field_signup{
 
 .sign-up-form
 {
-    width: 40vh;
-    height: 60vh;
+    width: 85%;
+    height: 85%;
     /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); */
     padding: 20px;
     margin: 8% auto 0;
