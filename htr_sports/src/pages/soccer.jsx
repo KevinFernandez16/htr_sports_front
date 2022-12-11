@@ -63,92 +63,137 @@ const Soccer = () => {
   }, [searchTerm]);
 
   return (
-    <div className="mainSoccer">
+    <div id="doc3" class="yui-t7">
       <MainLayout>
-        <div className="mainHeader">
-          <Link to="/soccer/Livescore">
-            <h3 className="topHeader"
-              style={{
-                fontSize: "xxx-large",
-              }}
-            >
-              Link to Real Time Scores
-            </h3>
-          </Link>
+        <div id="hd">
+          <div style={titleStyles.title_div}>
+            <h1 style={titleStyles.title}>HTR Sports Soccer Page</h1>
+          </div>
         </div>
-        <div className="soccerSearchBar">
-          <h1 className="headerOne">Search the country of your league</h1>
-          <input
-            className="soccerButton"
-            value={inputSearch}
-            onChange={(event) => {
-              const text = event.target.value;
-              setInputSearch(text);
-            }}
-          />
-          <button
-            className="soccerButton"
-            onClick={(event) => {
-              setSearchTerm(inputSearch);
-            }}
-          >
-            Search Country
-          </button>
-        </div>
-        <div>
-          <h2 className="headerTwo">Find your league</h2>
-          <Dropdown
-            className="Dropdown"
-            options={leagueList}
-            onChange={(item) => {
-              setleagueID(item.value);
-            }}
-            placeholder="Select an option"
-          />
-          <div>
-            <Link to={`/soccer/LeagueStats/${leagueID}`}>
-              <h4>League's Statistics</h4>
-            </Link>
-            {standings.length > 0 &&
-              standings.map((standing) => {
-                return (
-                  <div
-                    className=""
-                    key={standing.team.id}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      marginBottom: 20,
-                    }}
-                  >
-                    <div style={{ display: "flex" }}>
-                      <Link to={`/soccer/team/${standing.team.id}`}>
-                        <h1>{standing.team.name}</h1>
+        <div id="bd">
+          <div id="yui-main">
+            <div class="yui-b">
+              <div class="yui-gd">
+                <div class="yui-u first">
+                  <div class="content">
+                    <strong>Our Different Links</strong>
+                    <div className="mainHeader">
+                      <Link to="/soccer/Livescore">
+                        <h3
+                          className="topHeader"
+                          style={{
+                            fontSize: "xx-large",
+                          }}
+                        >
+                          Link to Real Time Scores
+                        </h3>
                       </Link>
-                      <div>
-                        <img
-                          style={{ height: 50, width: 50 }}
-                          src={standing.team.logo}
-                          alt="Team Logo"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                      }}
-                    >
-                      <p>Played : {standing.all.played}</p>
-                      <p>Wins: {standing.all.win}</p>
-                      <p>Losses: {standing.all.lose}</p>
-                      <p>Goals For: {standing.all.goals.for}</p>
-                      <p>Goals Against: {standing.all.goals.against}</p>
-                      <p>Form: {standing.form}</p>
+                      <img
+                        style={{ height: 250, width: 250 }}
+                        src="https://www.thegreatapps.com/application/upload/Apps/2021/10/all-football-live-score-and-live-soccer-24-189.png"
+                      />
                     </div>
                   </div>
-                );
-              })}
+                </div>
+                <div class="yui-u">
+                  <div class="content">
+                    <strong>Country of League Search Bar</strong>
+                    <div className="soccerSearchBar">
+                      <h1 className="headerOne">
+                        <strong>Search the country of your league</strong>
+                      </h1>
+                      <input
+                        className="soccerButton"
+                        value={inputSearch}
+                        onChange={(event) => {
+                          const text = event.target.value;
+                          setInputSearch(text);
+                        }}
+                      />
+                      <button
+                        className="soccerButton"
+                        onClick={(event) => {
+                          setSearchTerm(inputSearch);
+                        }}
+                      >
+                        <strong>Search Country</strong>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="yui-b">
+            <div id="secondary">
+              <strong id="headerSecond">League Standings</strong>
+              <div>
+                <h2 className="headerTwo">Find your league</h2>
+                <Dropdown
+                  className="Dropdown"
+                  options={leagueList}
+                  onChange={(item) => {
+                    setleagueID(item.value);
+                  }}
+                  placeholder="Select an option"
+                />
+                <div>
+                  <Link to={`/soccer/LeagueStats/${leagueID}`}>
+                    <h4>League's Statistics</h4>
+                  </Link>
+
+                  <tbody id="LeagueTable">
+                    <tr>
+                      <th>Team Name</th>
+                      <th>Team Logo</th>
+                      <th>Games Played</th>
+                      <th>Games Won</th>
+                      <th>Games Lossed</th>
+                      <th>Goals For</th>
+                      <th>Goals Against</th>
+                      <th>Team Form</th>
+                    </tr>
+
+                    <div>
+                      {standings.length > 0 &&
+                        standings.map((standing) => {
+                          return (
+                            <div className="">
+                              <tbody id="LeagueTable">
+
+                              <tr key={standing.team.id}>
+                                <td>
+                                  <Link to={`/soccer/team/${standing.team.id}`}>
+                                    <h1>{standing.team.name}</h1>
+                                  </Link>
+                                </td>
+                                <td>
+                                  <img
+                                    style={{ height: 50, width: 50 }}
+                                    src={standing.team.logo}
+                                    alt="Team Logo"
+                                  />
+                                </td>
+                                <td>Games Played: {standing.all.played}</td>
+                                <td>Wins: {standing.all.win}</td>
+                                <td>Losses: {standing.all.lose}</td>
+                                <td>Goals For: {standing.all.goals.for}</td>
+                                <td>
+                                  Goals Against: {standing.all.goals.against}
+                                </td>
+                                <td>Team Form {standing.form}</td>
+                              </tr>
+                              </tbody>
+
+                            </div>
+                            
+                          );
+                        })}
+                    </div>
+                  </tbody>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </MainLayout>
@@ -157,3 +202,20 @@ const Soccer = () => {
 };
 
 export default Soccer;
+
+const titleStyles = {
+  title_div: {
+    width: "60%",
+    textAlign: "center",
+    margin: "auto",
+    paddingTop: "6rem",
+    paddingBottom: "2rem",
+  },
+  title: {
+    color: "#1b2031",
+    fontSize: "50px",
+    fontFamily: "Helvetica",
+    fontWeight: "700",
+    lineHeight: "50px",
+  },
+};
