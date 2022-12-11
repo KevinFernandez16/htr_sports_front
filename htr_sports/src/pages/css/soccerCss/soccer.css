@@ -193,7 +193,13 @@ body{text-align:center;}
     display: table;
 }
 
-td, th {
+#td{
+    border: 1px solid #020202;
+    padding: 10px;
+
+  }
+
+#th{
     border: 1px solid #020202;
     padding: 10px;
 

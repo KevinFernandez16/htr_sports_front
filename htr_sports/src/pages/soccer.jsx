@@ -142,55 +142,47 @@ const Soccer = () => {
                     <h4>League's Statistics</h4>
                   </Link>
 
-                  <tbody id="LeagueTable">
-                    <tr>
-                      <th>Team Name</th>
-                      <th>Team Logo</th>
-                      <th>Games Played</th>
-                      <th>Games Won</th>
-                      <th>Games Lossed</th>
-                      <th>Goals For</th>
-                      <th>Goals Against</th>
-                      <th>Team Form</th>
-                    </tr>
-
-                    <div>
+                  <div>
+                    <tbody id="LeagueTable">
+                      <tr>
+                        <th>Team Name</th>
+                        <th>Team Logo</th>
+                        <th>Games Played</th>
+                        <th>Games Won</th>
+                        <th>Games Lossed</th>
+                        <th>Goals For</th>
+                        <th>Goals Against</th>
+                        <th>Team Form</th>
+                      </tr>
                       {standings.length > 0 &&
                         standings.map((standing) => {
                           return (
-                            <div className="">
-                              <tbody id="LeagueTable">
-
-                              <tr key={standing.team.id}>
-                                <td>
-                                  <Link to={`/soccer/team/${standing.team.id}`}>
-                                    <h1>{standing.team.name}</h1>
-                                  </Link>
-                                </td>
-                                <td>
-                                  <img
-                                    style={{ height: 50, width: 50 }}
-                                    src={standing.team.logo}
-                                    alt="Team Logo"
-                                  />
-                                </td>
-                                <td>Games Played: {standing.all.played}</td>
-                                <td>Wins: {standing.all.win}</td>
-                                <td>Losses: {standing.all.lose}</td>
-                                <td>Goals For: {standing.all.goals.for}</td>
-                                <td>
-                                  Goals Against: {standing.all.goals.against}
-                                </td>
-                                <td>Team Form {standing.form}</td>
-                              </tr>
-                              </tbody>
-
-                            </div>
-                            
+                            <tr key={standing.team.id}>
+                              <td>
+                                <Link to={`/soccer/team/${standing.team.id}`}>
+                                  <h1>{standing.team.name}</h1>
+                                </Link>
+                              </td>
+                              <td>
+                                <img
+                                  style={{ height: 50, width: 50 }}
+                                  src={standing.team.logo}
+                                  alt="Team Logo"
+                                />
+                              </td>
+                              <td>Games Played: {standing.all.played}</td>
+                              <td>Wins: {standing.all.win}</td>
+                              <td>Losses: {standing.all.lose}</td>
+                              <td>Goals For: {standing.all.goals.for}</td>
+                              <td>
+                                Goals Against: {standing.all.goals.against}
+                              </td>
+                              <td>Team Form {standing.form}</td>
+                            </tr>
                           );
                         })}
-                    </div>
-                  </tbody>
+                    </tbody>
+                  </div>
                 </div>
               </div>
             </div>
