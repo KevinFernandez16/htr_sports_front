@@ -1,28 +1,19 @@
-/*
-Copyright (c) 2007, Yahoo! Inc. All rights reserved.
-Code licensed under the BSD License:
-http://developer.yahoo.net/yui/license.txt
-version: 2.2.2
-*/
-/* for all templates and grids */
+
 body{text-align:center;}
 #ft{clear:both;}
-/**/
-/* 750 centered, and backward compatibility */ 
+
 #doc,#doc2,#doc3,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7 {
 	margin:auto;text-align:left;
 	width:57.69em;*width:56.3em;min-width:750px;}
-/* 950 centered */ 
+
 #doc2 {
 	width:73.074em;*width:71.313em;min-width:950px;}
-/* 100% with 10px viewport side matting */ 
+
 #doc3 {
-	margin:auto 10px; /* not for structure, but so content doesn't bleed to edge */
+	margin:auto 10px; 
 	width:auto;}
 	
-/* below required for all fluid grids; adjust widths and margins above accordingly */
 
-	/* to preserve source-order independence for Gecko */
 	.yui-b{position:relative;}
 	.yui-b{_position:static;} /* for IE < 7 */
 	#yui-main .yui-b{position:static;} 
