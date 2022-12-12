@@ -76,7 +76,7 @@ const Header = () => {
                         {/* <HeaderItem name={Paths.fantasy.name} path={Paths.fantasy.path}/> */}
                         <HeaderItem name={Paths.worldCup.name} path={Paths.worldCup.path}/>
                         <HeaderItem name={Paths.forum.name} path={Paths.forum.path}/>
-                        <HeaderItem name={Paths.findGame.name} path={Paths.findGame.path}/>
+                        <HeaderItem name={Paths.find.name} path={Paths.find.path}/>
                         <HeaderItem name={Paths.profileid.name} path={Paths.profileid.path}/>
                         <SignUp/>
                         <LogInSignUp />

@@ -11,19 +11,10 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { getStorage, ref as storageref, uploadBytes, getDownloadURL, deleteObject }  from "https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js";
 import aes from "../pages/AES.jsx"
 
-import Crypto from "crypto-js";
 
-function hash(string) {
-  /*let bit128 = Crypto.SHA1(string).words.map(function(x){
-    console.log(x);
-    console.log(aes.decimalToHex(x));
-  });*/
-  return Crypto.SHA256(string).toString(Crypto.enc.Hex); // return the hash as a hex
-}
 
 const secretKey = "internationallol"; //keep key at 16 bits
 const textEncrypt = "Here is a secret with a twist"; //password12345678 would be the short key and this would return a hash value
-let roundKey = hash(secretKey);
 
 const matrixes = [];
 let rounds = 0;
