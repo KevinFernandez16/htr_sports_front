@@ -44,6 +44,7 @@ function CreatePost() {
       Title: title.value,
       Body: body.value,
       Owner: user.uid,
+      ReplyCount: 0,
     })
       .then(() => {
         alert("Posted successfully");
