@@ -27,25 +27,25 @@
 // ]
 
 const Paths = {
-    home: { 
+    home: {
         name: 'Hunter Sports',
-        path: '/' 
+        path: '/'
     },
     soccer: {
         name: 'Soccer',
-        path: '/soccer' 
+        path: '/soccer'
     },
     basketball: {
         name: 'Basketball',
-        path: '/basketball' 
+        path: '/basketball'
     },
     fantasy: {
         name: 'Fantasy',
-        path: '/fantasy' 
+        path: '/fantasy'
     },
     worldCup: {
         name: 'World Cup',
-        path: '/worldcup'  
+        path: '/worldcup'
     },
     forum: {
         name: 'Forum',
@@ -54,8 +54,11 @@ const Paths = {
     findGame: {
         name: 'Find Game',
         path: '/findgame'
+    },
+    profile: {
+      name: 'Profile Page',
+      path: '/profile'
     }
-
 
 };
 

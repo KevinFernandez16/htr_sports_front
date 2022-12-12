@@ -2,6 +2,144 @@ import React, { useState, useEffect } from 'react';
 import Overlay from './overlay';
 import './sign-up.css';
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut  } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
+import { getStorage, ref as storageref, uploadBytes, getDownloadURL, deleteObject }  from "https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBoF3DW_pIDocCRPlrqFpUfxdXtCT7lpFQ",
+  authDomain: "htr-sports.firebaseapp.com",
+  databaseURL: "https://htr-sports-default-rtdb.firebaseio.com",
+  projectId: "htr-sports",
+  storageBucket: "htr-sports.appspot.com",
+  messagingSenderId: "119767757957",
+  appId: "1:119767757957:web:d9f4cfeed391dc8bbde5ec",
+  measurementId: "G-WEB0Z72L02"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+const db = getDatabase();
+
+const auth = getAuth(app)
+
+const defaultData = {
+  DisplayName: "Anonymous",
+  Email: "",
+  Password: "",
+  PhoneNumber: 0,
+  ProfilePicture: "None",
+  BannerPicture: "None",
+  //TestData: "Default",
+  //TestData2: "Default2",
+  ShopData: {
+    Item1: false,
+    Item2: false
+  }
+}
+
+const removeData = {
+  TestData: true,
+  TestData2: true,
+}
+
+function updateExistingData(){
+  const user = auth.currentUser;
+  if (user){
+    const dbref = ref(db)
+    get(child(dbref, "Users/" + user.uid))
+    .then((snapshot) => {
+      if(snapshot.exists()){
+        /*for (const [index, name] of defaultData.entries){
+          console.log('Index: ${index}, holds ${name}');
+        }*/
+        for (const [key, value] of Object.entries(defaultData)) {
+          console.log(key);
+          if (snapshot.val()[key] != null){
+            console.log("Found");
+
+            if (removeData[key] == true){
+              console.log("Deleted");
+              const updates = {};
+              updates["Users/"+user.uid+"/"+key] = null;
+              update(dbref,updates);
+            }
+
+          }else{
+            console.log("Not found, must create");
+
+            const updates = {};
+            updates["Users/"+user.uid+"/"+key] = value;
+            update(dbref,updates);
+          }
+          console.log('------------------------------')
+        }
+      }
+    })
+  }
+}
+
+
+function createAccount(name,email,number,password){
+  //alert("Clicked");
+  //const dbref = ref(db)
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log("Just made an account!");
+
+    var NewData = defaultData
+    NewData.DisplayName = name;
+    NewData.Email = email;
+    NewData.Password = password;
+    NewData.PhoneNumber = number;
+    set(ref(db, 'Users/'+user.uid),/*{
+      DisplayName: "Anonymous",
+      Email: email,
+      Password: password,
+      ProfilePicture: "None",
+      //Email: user.value,
+    }*/defaultData)
+    .then(()=>{
+      console.log("Data created")
+      window.location.reload(false);
+    })
+    .catch((error)=>{
+      alert(error);
+    });
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    //alert(errorCode+" : "+errorMessage);
+    //console.log(errorCode+":"+errorMessage);
+    if (errorCode == "auth/email-already-in-use"){
+      console.log('in use');
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("Logged in to existing")
+        updateExistingData();
+        console.log(userCredential);
+        // ...
+      })
+      .catch((error) => {
+        const nerrorCode = error.code;
+        const nerrorMessage = error.message;
+        alert(nerrorCode+" : "+nerrorMessage);
+        console.log(nerrorCode+":"+nerrorMessage);
+      });
+    }
+  });
+}
+
+
 const SignUpOverlay = ({ isOpen, onClose }) => {
 
     const initialValues = { username: "", email: "", phonenumber: "", password: "" }; //initial state
@@ -17,8 +155,14 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFormErrors(validate(formValues));
+        const errors = validate(formValues)
+        setFormErrors(errors);
         setIsSubmit(true);
+        if (Object.keys(errors).length == 0){
+          createAccount(formValues.username,formValues.email,formValues.phonenumber,formValues.password);
+        }else{
+          console.log('Has error');
+        }
     };
 
     useEffect(() => {
@@ -78,7 +222,7 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
                     <p>{formErrors.username}</p>
                     <div class="txt_field_signup">
                         <input
-                            // type="email" 
+                            // type="email"
                             name="email"
                             id="email"
                             placeholder="Email"

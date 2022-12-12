@@ -11,6 +11,7 @@ import Forum from './pages/forum'
 import FindGame from './pages/findgame'
 import Paths from './utils/route'
 import WidgetPage from './pages/SoccerPages/WidgetPage'
+import ProfilePage from './pages/Profile'
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -40,6 +41,9 @@ function App() {
           <Route path={Paths.forum.path} element={<Forum />} />
           <Route path={`${Paths.forum.path}/forumpage/:id`} element={<ForumPage />} />
           <Route path={Paths.findGame.path} element={<FindGame />} />
+
+          <Route path={Paths.profile.path} element={<ProfilePage />} />
+
           <Route path="*" element={<Error />} />
           {/* <Route path={Paths[1].path} element={<Soccer />} />
           <Route path={Paths[4].path} element={<Forum />} /> */}

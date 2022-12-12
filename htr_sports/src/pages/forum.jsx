@@ -117,7 +117,6 @@ const Forum = () => {
       <dl id = "forum" className = "text">
       </dl>
     </MainLayout>
-
   </div>
 }
 
