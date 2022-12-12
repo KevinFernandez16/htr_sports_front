@@ -1,11 +1,12 @@
 import Paths from "../utils/route";
 import LogInSignUp from "./log-in-sign-up";
 import SignUp from "./sign-up";
+import SignOut from "./signout";
 
 import "./Header.css";
 const HeaderItem = ({ name, path }) => {
     return (
-        <li> 
+        <li>
             {/* TODO: use link component from react route */}
             <a href={path}>{name}</a>
         </li>
@@ -37,7 +38,7 @@ const Header = () => {
                         <HeaderItem name={Paths.findGame.name} path={Paths.findGame.path}/>
                         <SignUp/>
                         <LogInSignUp />
-
+                        <SignOut/>>
                     </ul>
                 </nav>
             </div>

@@ -277,22 +277,6 @@ function signOutOf(){
   window.location.reload(false);
 }
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    const signOut = document.getElementById("signOut")
-    console.log("Signed in!!");
-
-    const signoutBtn = document.createElement("button");
-    signoutBtn.setAttribute('id','signoutbutton');
-    signoutBtn.setAttribute('value','Sign Out');
-    signoutBtn.innerHTML = "Sign Out";
-    signoutBtn.addEventListener('click',signOutOf)
-    signOut.appendChild(signoutBtn);
-  } else {
-    console.log("Signed out!");
-  }
-});
-
 setTimeout(getForum, 1000);
 
 const Profile = () => {

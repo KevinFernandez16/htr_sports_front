@@ -12,6 +12,7 @@ import FindGame from './pages/findgame'
 import Paths from './utils/route'
 import WidgetPage from './pages/SoccerPages/WidgetPage'
 import ProfilePage from './pages/Profile'
+import ProfilePageID from './pages/ProfilePage'
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -43,6 +44,7 @@ function App() {
           <Route path={Paths.findGame.path} element={<FindGame />} />
 
           <Route path={Paths.profile.path} element={<ProfilePage />} />
+          <Route path={`${Paths.profile.path}/:id`} element={<ProfilePageID />} />
 
           <Route path="*" element={<Error />} />
           {/* <Route path={Paths[1].path} element={<Soccer />} />

@@ -27,6 +27,11 @@ img {
     object-fit:cover;
 }
 
+#pfp {
+  height: 100%;
+  width: 100%;
+}
+
 #profileChange {
   transition: .5s ease;
   opacity: 0;
@@ -57,4 +62,12 @@ img {
 
 #bannerPicture:hover #bannerChange {
   opacity: 1;
+}
+
+label {
+  color: #ec6a00;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-family: 'Black Ops One', cursive;
 }
