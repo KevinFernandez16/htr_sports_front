@@ -1,54 +1,112 @@
 import { MainLayout } from "./mainLayout";
+import {GoogleMap,useJsApiLoader, MarkerF, Autocomplete, DirectionsRenderer,} from "@react-google-maps/api";
+import {render} from "react-dom";
+import React, { Component, useState, useRef } from "react";
+import { Box } from '@material-ui/core';
+import "./findgame.css";
+//geolocation begin
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
 
-import { useEffect, useState } from "react"; //importing the hooks
-
-const FindGame = () => {
-  const [venue, setVenue] = useState();
-
-  useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": '5059162118mshc58ff3e3e67564ap1eea11jsn00e6db6f48d7',//import api key
-        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-      },
     };
+  }
 
-    if (!venue) {
-      fetch(
-        "https://api-football-v1.p.rapidapi.com/v3/venues?country=Ecuador%22",//grab from api
-        options
-      )
-        .then((response) => response.json())
-        // .then(response => console.log(response))
-        .then((response) => {
-          setVenue(response.response)
-        });
-    }
-  }, [venue]);
+  componentDidMount(){
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+    });
+  }
 
-//display the api (we got to make sure our code matches with the api's code in order to display specific information)
-  return (
-    <div className="page">
-      <MainLayout>
-        <div>
+  render(){
+    return(
+      <div>
+        <h4></h4>
+      </div>
+    );
+  }
+}
+render(<App />, document.getElementById("root"));
+//geolocation end
+function Map(){
+  const {isLoaded} = useJsApiLoader({
+    googleMapsApiKey:"",
+    libraries: ['places'],
+  })
+  const [distance, setDistance] = useState('');
+  const [duration, setDuration] = useState('');
+  const [direction ,setDirection] = useState(null);
+  const [position, setPosition] = useState({lat: 40.74988916, lng: -73.8771786});
 
-            {/* <h1> TESTING {venue.name} </h1> */}
-          {venue &&
-            venue.map((venue) => {
-              return (
-                <div key={venue.id}>
-                  <h1>{venue.address} </h1>
-                  <p> {venue.name} </p>
-                  <p> {venue.id}</p>
-                  <p> {venue.country}</p>
-                </div>
-              );
-            })}
-        </div>
-      </MainLayout>
+  const originRef = useRef()
+  const destinationRef = useRef()
+
+
+
+  if(!isLoaded){
+    return
+  }
+
+async function calculateRoute(){
+  if (originRef.current.value === '' || destinationRef.current.value === '') {
+    return
+}
+  // eslint-disable-next-line no-undef
+  const directionsService = new google.maps.DirectionsService()
+  const results = await directionsService.route({
+    origin: originRef.current.value,
+    destination: destinationRef.current.value,
+    // eslint-disable-next-line no-undef
+    travelMode: google.maps.TravelMode.DRIVING,
+  
+  })
+  setDirection(results)
+  setDistance(results.routes[0].legs[0].distance.text)
+  setDuration(results.routes[0].legs[0].duration.text)
+}
+
+  return(
+<MainLayout>
+    <>
+    <div style ={{position:'absolute', top:60, right:300}}>
+    <button onClick={() => setPosition({lat: 40.74988916, lng: -73.8771786})}>Back to Center</button>
     </div>
-  );
-};
+    <div style ={{position:'absolute', top:80, right:300}}>
+    <button type = 'submit' onClick = {calculateRoute}>Calculate Route</button>
+    </div>
+    <div style ={{position:'absolute', top:100, right:300}}>
+    <text>Distance: {distance}</text>
+    </div>
+    <div style ={{position:'absolute', top:120, right:300}}>
+    <text>Amount of Time: {duration}</text>
+    </div>
 
-export default FindGame;
+
+  <GoogleMap
+    zoom = {15}
+    center = {position}
+    mapContainerClassName = "measure"
+    >
+      <MarkerF position = {position}/>
+      {direction  && (
+        <DirectionsRenderer directions = {direction}/>)}
+
+  </GoogleMap>
+    </>
+  <Box style ={{position:'absolute', top:55, right:720}}>
+    <Autocomplete>
+      <input type = 'text' placeholder = 'Start' ref = {originRef}/>
+    </Autocomplete>
+  </Box>
+
+  <Box style ={{position:'absolute', top:75, right:720}}>
+    <Autocomplete>
+      <input type = 'text' placeholder = 'Destination' ref = {destinationRef}/>
+    </Autocomplete>
+  </Box>
+</MainLayout>
+  );
+}
+export default Map

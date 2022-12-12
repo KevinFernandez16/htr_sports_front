@@ -7,8 +7,10 @@ const customStyles = {
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
+      background: '#171717',
       transform: 'translate(-50%, -50%)',
- 
+      width: "30%",
+      height: "80%"
     },
   };
   
