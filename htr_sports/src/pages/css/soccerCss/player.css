@@ -1,0 +1,39 @@
+.PlayerPage{
+    background-color: #171717;
+}
+
+
+.PlayerPhoto{
+    align-content: center;
+    text-align-last: center;
+    background-color: #171717;
+}
+
+.PlayerInfo{
+    text-align: center;
+    font-size: xx-large;
+    color: #ec6a00;    
+}
+
+
+.PlayerStats{
+    font-size: x-large;
+}
+
+.PlayerStatTable{
+    display: table;
+}
+
+td, th {
+    border: 2px solid #000000;
+    padding: 10px;
+
+  }
+
+
+table{
+color: #ec6a00;
+font-size: larger;
+width: 100%;
+background-color: white;
+}
