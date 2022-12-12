@@ -107,7 +107,10 @@ const Soccer = () => {
                     </strong>
                     <div className="soccerSearchBar">
                       <h1 className="headerOne">
-                        <strong className="FontClass" style={{ color: "#ec6a00" }}>
+                        <strong
+                          className="FontClass"
+                          style={{ color: "#ec6a00" }}
+                        >
                           Search the country of your league
                         </strong>
                       </h1>
@@ -125,7 +128,10 @@ const Soccer = () => {
                           setSearchTerm(inputSearch);
                         }}
                       >
-                        <strong className="FontClass" style={{ color: "#ec6a00" }}>
+                        <strong
+                          className="FontClass"
+                          style={{ color: "#ec6a00" }}
+                        >
                           Search Country
                         </strong>
                       </button>
@@ -136,8 +142,13 @@ const Soccer = () => {
             </div>
           </div>
           <div class="yui-b">
-            <div id="secondary">
-              <strong className="FontClass" id="headerSecond" style={{ color: "#ec6a00" }}>
+            <div id="SoccerLeague">
+              <strong
+                className="FontClass"
+                id="headerSecond"
+                style={{ color: "#ec6a00", 
+                textAlign: 'center' }}
+              >
                 League Standings
               </strong>
               <div>
@@ -154,7 +165,9 @@ const Soccer = () => {
                 />
                 <div>
                   <Link to={`/soccer/LeagueStats/${leagueID}`}>
-                    <h4 className="FontClass" style={{ color: "#ec6a00" }}>League's Statistics</h4>
+                    <h4 className="FontClass" style={{ color: "#ec6a00" }}>
+                      League's Statistics
+                    </h4>
                   </Link>
 
                   <div>
