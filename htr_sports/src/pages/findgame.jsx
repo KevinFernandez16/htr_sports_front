@@ -69,7 +69,7 @@ async function calculateRoute(){
 
   return(
 <MainLayout>
-  <div style={{ backgroundColor: "#171717" }}>
+  <div style={{ backgroundColor: "#1A1A1A" }}>
     <>
     <Box style ={{}}>
     <Autocomplete>
@@ -79,22 +79,21 @@ async function calculateRoute(){
 
   <Box style ={{top:0, left: 0}}>
     <Autocomplete>
-      <input type = 'text' placeholder = 'Destination' ref = {destinationRef} className = "fontclass , textarea"/>
+      <input type = 'text' placeholder = 'Destination' ref = {destinationRef} className = "fontclass"/>
     </Autocomplete>
   </Box>
 
+  <div class = "flex center">
+    <button className = "click fontclass button-right" onClick={() => setPosition({lat: 40.768538, lng: -73.964741})}>Back to Center</button>
+
+    <button className = "click fontclass" type = 'submit' onClick = {calculateRoute}>Calculate Route</button>
+  </div>
   <div>
-    <button className = "click , fontclass" onClick={() => setPosition({lat: 40.768538, lng: -73.964741})}>Back to Center</button>
-    </div>
-    <div>
-    <button className = "click , fontclass" type = 'submit' onClick = {calculateRoute}>Calculate Route</button>
-    </div>
-    <div>
     <text style={{ color: "#ec6a00" }} className = "fontclass">Distance: {distance}</text>
-    </div>
-    <div>
+  </div>
+  <div>
     <text style={{ color: "#ec6a00" }} className = "fontclass">Amount of Time: {duration}</text>
-    </div>
+  </div>
 
 <div>
   <GoogleMap

@@ -27,6 +27,15 @@
   background: black;
 }
 
-textarea {
-  width: 1000px; height: 20px
+.center{
+  top:10%;
+  justify-content: center;
+}
+
+.button-right{
+  margin-right: 15px;
+}
+
+.flex{
+  display: flex;
 }
