@@ -32,7 +32,7 @@ render(<App />, document.getElementById("root"));
 //geolocation end
 function Map(){
   const {isLoaded} = useJsApiLoader({
-    googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
+    googleMapsApiKey:"",
     libraries: ['places'],
 })
   const [distance, setDistance] = useState('');
