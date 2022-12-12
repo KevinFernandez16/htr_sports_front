@@ -93,6 +93,17 @@ const Soccer = () => {
                           Link to Real Time Scores
                         </h3>
                       </Link>
+                      <Link to="/soccer/SoccerNews" style={{textDecoration: '#ec6a00'}}>
+                        <h3
+                          className="FontClass"
+                          style={{
+                            fontSize: "xx-large",
+                            color: "#ec6a00",
+                          }}
+                        >
+                          Link to Soccer News
+                        </h3>
+                      </Link>
                       <img
                         style={{ height: 250, width: 250 }}
                         src="https://www.thegreatapps.com/application/upload/Apps/2021/10/all-football-live-score-and-live-soccer-24-189.png"
