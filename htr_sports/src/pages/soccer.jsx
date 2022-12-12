@@ -63,11 +63,13 @@ const Soccer = () => {
   }, [searchTerm]);
 
   return (
-    <div id="doc3" class="yui-t7">
+    <div style={{ backgroundColor: "#171717" }} id="doc3" class="yui-t7">
       <MainLayout>
         <div id="hd">
           <div style={titleStyles.title_div}>
-            <h1 style={titleStyles.title}>HTR Sports Soccer Page</h1>
+            <h1 className="FontClass" style={titleStyles.title}>
+              HTR Sports Soccer Page
+            </h1>
           </div>
         </div>
         <div id="bd">
@@ -76,13 +78,16 @@ const Soccer = () => {
               <div class="yui-gd">
                 <div class="yui-u first">
                   <div class="content">
-                    <strong>Our Different Links</strong>
+                    <strong className="FontClass" style={{ color: "#ec6a00" }}>
+                      Our Different Links
+                    </strong>
                     <div className="mainHeader">
                       <Link to="/soccer/Livescore">
                         <h3
-                          className="topHeader"
+                          className="FontClass"
                           style={{
                             fontSize: "xx-large",
+                            color: "#ec6a00",
                           }}
                         >
                           Link to Real Time Scores
@@ -97,10 +102,14 @@ const Soccer = () => {
                 </div>
                 <div class="yui-u">
                   <div class="content">
-                    <strong>Country of League Search Bar</strong>
+                    <strong className="FontClass" style={{ color: "#ec6a00" }}>
+                      Country of League Search Bar
+                    </strong>
                     <div className="soccerSearchBar">
                       <h1 className="headerOne">
-                        <strong>Search the country of your league</strong>
+                        <strong className="FontClass" style={{ color: "#ec6a00" }}>
+                          Search the country of your league
+                        </strong>
                       </h1>
                       <input
                         className="soccerButton"
@@ -116,7 +125,9 @@ const Soccer = () => {
                           setSearchTerm(inputSearch);
                         }}
                       >
-                        <strong>Search Country</strong>
+                        <strong className="FontClass" style={{ color: "#ec6a00" }}>
+                          Search Country
+                        </strong>
                       </button>
                     </div>
                   </div>
@@ -126,9 +137,13 @@ const Soccer = () => {
           </div>
           <div class="yui-b">
             <div id="secondary">
-              <strong id="headerSecond">League Standings</strong>
+              <strong className="FontClass" id="headerSecond" style={{ color: "#ec6a00" }}>
+                League Standings
+              </strong>
               <div>
-                <h2 className="headerTwo">Find your league</h2>
+                <h2 className="FontClass" style={{ color: "#ec6a00" }}>
+                  Find your league
+                </h2>
                 <Dropdown
                   className="Dropdown"
                   options={leagueList}
@@ -139,7 +154,7 @@ const Soccer = () => {
                 />
                 <div>
                   <Link to={`/soccer/LeagueStats/${leagueID}`}>
-                    <h4>League's Statistics</h4>
+                    <h4 className="FontClass" style={{ color: "#ec6a00" }}>League's Statistics</h4>
                   </Link>
 
                   <div>
@@ -204,7 +219,7 @@ const titleStyles = {
     paddingBottom: "2rem",
   },
   title: {
-    color: "#1b2031",
+    color: "#ec6a00",
     fontSize: "50px",
     fontFamily: "Helvetica",
     fontWeight: "700",

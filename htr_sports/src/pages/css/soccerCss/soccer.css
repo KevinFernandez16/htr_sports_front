@@ -5,7 +5,16 @@ http://developer.yahoo.net/yui/license.txt
 version: 2.2.2
 */
 /* for all templates and grids */
-body{text-align:center;}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap%27');
+
+
+.FontClass{
+    font-family: 'Black Ops One', cursive;
+}
+
+#body{text-align:center;}
 #ft{clear:both;}
 /**/
 /* 750 centered, and backward compatibility */ 
@@ -132,7 +141,7 @@ body{text-align:center;}
 
 #header{
 	height:100px;
-	background-color:#F3F2ED;
+	background-color:#171717;
 	margin:0;
 	padding:0;
 	}
@@ -144,45 +153,38 @@ body{text-align:center;}
 	}
 	
 #header h1 a{
-	color:#000000;
-	background-color:#F3F2ED;
+	color:#171717;
+	background-color:#171717;
 	}
 
 .content{
+    border: #ec6a00 2px solid;
 	height:400px;
     font-size: x-large;
     text-align: center;
-	background:#CCC8B3;
-	border-top:#FFFFFF 2px solid;
+	background:#171717;
 	margin:0;
 	padding:0;
 	}
 
 #secondary{
+    border: #ec6a00 2px solid;
     font-size: x-large;
     text-align: center;
-	height:300px;
-	background:#F6F0E0;
-	border-top:#FFFFFF 2px solid;
-	margin:0;
+	height:auto;
+	background:#171717;
+    margin:0;
 	padding:0;
 	}
 
 #secondaryFull{
 	height:50px;
 	background-color:#CFB59F;
-	border-top:#FFFFFF 2px solid;
+	border-top:#ec6a00 2px solid;
 	margin:0;
 	padding:0;
 	}
 
-#footer{
-	height:50px;
-	background:#BFBD93;
-	border-top:#FFFFFF 2px solid;
-	margin:0;
-	padding:0;
-	}
 
 #headerSecond{
     font-size: xxx-large;
@@ -192,15 +194,3 @@ body{text-align:center;}
     width: 100%;
     display: table;
 }
-
-#td{
-    border: 1px solid #020202;
-    padding: 10px;
-
-  }
-
-#th{
-    border: 1px solid #020202;
-    padding: 10px;
-
-  }
