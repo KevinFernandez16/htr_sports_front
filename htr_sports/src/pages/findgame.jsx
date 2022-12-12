@@ -34,7 +34,7 @@ function Map(){
   const {isLoaded} = useJsApiLoader({
     googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
     libraries: ['places'],
-  })
+})
   const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState('');
   const [direction ,setDirection] = useState(null);
@@ -43,13 +43,11 @@ function Map(){
   const originRef = useRef()
   const destinationRef = useRef()
 
-
-
   if(!isLoaded){
     return
   }
 
-async function calculateRoute(){
+async function calculate(){
   if (originRef.current.value === '' || destinationRef.current.value === '') {
     return
 }
@@ -67,48 +65,48 @@ async function calculateRoute(){
   setDuration(results.routes[0].legs[0].duration.text)
 }
 
-  return(
+return(
 <MainLayout>
-  <div style={{ backgroundColor: "#1A1A1A" }}>
-    <>
+  <div style={{ backgroundColor: "#1A1A1A" }}> 
     <Box style ={{}}>
-    <Autocomplete>
-      <input type = 'text' placeholder = 'Start' ref = {originRef} className = "fontclass"/>
-    </Autocomplete>
-  </Box>
+      <Autocomplete>
+        <input type = 'text' placeholder = 'Start' ref = {originRef} className = "fontclass"/>
+      </Autocomplete>
+    </Box>
 
-  <Box style ={{top:0, left: 0}}>
-    <Autocomplete>
-      <input type = 'text' placeholder = 'Destination' ref = {destinationRef} className = "fontclass"/>
-    </Autocomplete>
-  </Box>
+    <Box style ={{top:0, left: 0}}>
+      <Autocomplete>
+        <input type = 'text' placeholder = 'Destination' ref = {destinationRef} className = "fontclass"/>
+      </Autocomplete>
+    </Box>
 
   <div class = "flex center">
+  {/*Center Button */}
     <button className = "click fontclass button-right" onClick={() => setPosition({lat: 40.768538, lng: -73.964741})}>Back to Center</button>
-
-    <button className = "click fontclass" type = 'submit' onClick = {calculateRoute}>Calculate Route</button>
+  {/*Calculate Button */}
+    <button className = "click fontclass" type = 'submit' onClick = {calculate}>Calculate</button>
   </div>
+
   <div>
+    {/*Distance*/}
     <text style={{ color: "#ec6a00" }} className = "fontclass">Distance: {distance}</text>
   </div>
   <div>
+    {/*Time*/}
     <text style={{ color: "#ec6a00" }} className = "fontclass">Amount of Time: {duration}</text>
   </div>
 
-<div>
-  <GoogleMap
-    zoom = {14}
-    center = {position}
-    mapContainerClassName = "measure"
-    >
-      {direction  && (
-        <DirectionsRenderer directions = {direction}/>)}
+<GoogleMap
+  zoom = {14}
+  center = {position}
+  mapContainerClassName = "measure">
+    {direction  && (
+      <DirectionsRenderer directions = {direction}/>)}
 
-  </GoogleMap>
+</GoogleMap>
+    
   </div>
-    </>
-    </div>
-</MainLayout>
+  </MainLayout>
   );
 }
 export default Map
