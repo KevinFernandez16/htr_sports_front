@@ -32,7 +32,7 @@ render(<App />, document.getElementById("root"));
 //geolocation end
 function Map(){
   const {isLoaded} = useJsApiLoader({
-    googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
+    googleMapsApiKey:"",
     libraries: ['places'],
 })
   const [distance, setDistance] = useState('');
@@ -51,7 +51,7 @@ async function calculate(){
   if (originRef.current.value === '' || destinationRef.current.value === '') {
     return
 }
-  // eslint-disable-next-line no-undef
+    //eslint-disable-next-line no-undef
   const directionsService = new google.maps.DirectionsService()
   const results = await directionsService.route({
     origin: originRef.current.value,
