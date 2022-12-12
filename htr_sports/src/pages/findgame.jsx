@@ -1,5 +1,5 @@
 import { MainLayout } from "./mainLayout";
-import {GoogleMap,useJsApiLoader, MarkerF, Autocomplete, DirectionsRenderer,} from "@react-google-maps/api";
+import {GoogleMap,useJsApiLoader, Autocomplete, DirectionsRenderer,} from "@react-google-maps/api";
 import {render} from "react-dom";
 import React, { Component, useState, useRef } from "react";
 import { Box } from '@material-ui/core';
@@ -32,13 +32,13 @@ render(<App />, document.getElementById("root"));
 //geolocation end
 function Map(){
   const {isLoaded} = useJsApiLoader({
-    googleMapsApiKey:"",
+    googleMapsApiKey:"AIzaSyB-TWLwxfG9pVuLNmDSEp3dA-CW9VHWvBs",
     libraries: ['places'],
   })
   const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState('');
   const [direction ,setDirection] = useState(null);
-  const [position, setPosition] = useState({lat: 40.74988916, lng: -73.8771786});
+  const [position, setPosition] = useState({lat: 40.768538, lng: -73.964741});
 
   const originRef = useRef()
   const destinationRef = useRef()
@@ -69,43 +69,46 @@ async function calculateRoute(){
 
   return(
 <MainLayout>
+  <div style={{ backgroundColor: "#171717" }}>
     <>
-    <div style ={{position:'absolute', top:60, right:300}}>
-    <button onClick={() => setPosition({lat: 40.74988916, lng: -73.8771786})}>Back to Center</button>
+    <Box style ={{}}>
+    <Autocomplete>
+      <input type = 'text' placeholder = 'Start' ref = {originRef} className = "fontclass"/>
+    </Autocomplete>
+  </Box>
+
+  <Box style ={{top:0, left: 0}}>
+    <Autocomplete>
+      <input type = 'text' placeholder = 'Destination' ref = {destinationRef} className = "fontclass , textarea"/>
+    </Autocomplete>
+  </Box>
+
+  <div>
+    <button className = "click , fontclass" onClick={() => setPosition({lat: 40.768538, lng: -73.964741})}>Back to Center</button>
     </div>
-    <div style ={{position:'absolute', top:80, right:300}}>
-    <button type = 'submit' onClick = {calculateRoute}>Calculate Route</button>
+    <div>
+    <button className = "click , fontclass" type = 'submit' onClick = {calculateRoute}>Calculate Route</button>
     </div>
-    <div style ={{position:'absolute', top:100, right:300}}>
-    <text>Distance: {distance}</text>
+    <div>
+    <text style={{ color: "#ec6a00" }} className = "fontclass">Distance: {distance}</text>
     </div>
-    <div style ={{position:'absolute', top:120, right:300}}>
-    <text>Amount of Time: {duration}</text>
+    <div>
+    <text style={{ color: "#ec6a00" }} className = "fontclass">Amount of Time: {duration}</text>
     </div>
 
-
+<div>
   <GoogleMap
-    zoom = {15}
+    zoom = {14}
     center = {position}
     mapContainerClassName = "measure"
     >
-      <MarkerF position = {position}/>
       {direction  && (
         <DirectionsRenderer directions = {direction}/>)}
 
   </GoogleMap>
+  </div>
     </>
-  <Box style ={{position:'absolute', top:55, right:720}}>
-    <Autocomplete>
-      <input type = 'text' placeholder = 'Start' ref = {originRef}/>
-    </Autocomplete>
-  </Box>
-
-  <Box style ={{position:'absolute', top:75, right:720}}>
-    <Autocomplete>
-      <input type = 'text' placeholder = 'Destination' ref = {destinationRef}/>
-    </Autocomplete>
-  </Box>
+    </div>
 </MainLayout>
   );
 }

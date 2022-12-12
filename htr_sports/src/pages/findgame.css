@@ -1,9 +1,32 @@
-.measure{
-    width: 1000px;
-    height: 1000px;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap%27');
 
-.comboinput{
-  width: 1000px;
-  padding: 0.5rem;
+.fontclass{
+  font-family: 'Black Ops One', cursive;
+  border-color: orange;
+
+}
+.measure{
+    width: 100%;
+    height: 90vh;
+  }
+  
+  .click {
+    width: 250px;
+    background: black;
+    font-size: 20px;
+    margin: 10px auto;
+    padding: 10px;
+    cursor: pointer;
+    color:orange;
+    border-color: orange;
+    
+}
+
+.click:hover {
+  opacity: 0.3;
+  background: black;
+}
+
+textarea {
+  width: 1000px; height: 20px
 }
