@@ -1,5 +1,54 @@
 .mainTeam{
     margin: 0px;
     padding: 0px;
-    background-color:  #020202ae;
+	color:#171717;
+    background-color:  #171717;
+    text-align: center;
+    column-count:4;    
+    width:auto;
+    height:auto;
+}
+
+.TeamLogoHeader{
+    background-color:  #171717;
+    padding-bottom: 25px;
+}
+
+.TeamNameText{
+    text-align: center;
+    font-size: x-large;
+    background-color:  #171717;
+
+}
+
+td, th {
+    border: 2px solid #000000;
+    padding: 10px;
+
+  }
+
+h1 {
+    text-align: center;
+    color: #ec6a00;
+}
+
+tbody {
+    display: table;
+    color: #ec6a00;
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    
+    width:200px;
+    height:200px;
+
+}
+
+.photo {
+    height: 60px;
+    width: 60px;
+}
+
+.TeamTable{
+    display: table;
 }
