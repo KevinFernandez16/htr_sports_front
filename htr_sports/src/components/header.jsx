@@ -80,7 +80,7 @@ const Header = () => {
                         <HeaderItem name={Paths.profileid.name} path={Paths.profileid.path}/>
                         <SignUp/>
                         <LogInSignUp />
-                        <SignOut/>>
+                        <SignOut/>
                     </ul>
                 </nav>
             </div>
