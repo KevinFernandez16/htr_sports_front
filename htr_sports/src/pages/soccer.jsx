@@ -82,7 +82,7 @@ const Soccer = () => {
                       Our Different Links
                     </strong>
                     <div className="mainHeader">
-                      <Link to="/soccer/Livescore">
+                      <Link to="/soccer/Livescore" style={{textDecoration: '#ec6a00'}}>
                         <h3
                           className="FontClass"
                           style={{
@@ -147,7 +147,8 @@ const Soccer = () => {
                 className="FontClass"
                 id="headerSecond"
                 style={{ color: "#ec6a00", 
-                textAlign: 'center' }}
+                textAlign: 'center',
+              display: 'block' }}
               >
                 League Standings
               </strong>
@@ -164,7 +165,7 @@ const Soccer = () => {
                   placeholder="Select an option"
                 />
                 <div>
-                  <Link to={`/soccer/LeagueStats/${leagueID}`}>
+                  <Link to={`/soccer/LeagueStats/${leagueID}`} style={{textDecoration: '#ec6a00'}}>
                     <h4 className="FontClass" style={{ color: "#ec6a00" }}>
                       League's Statistics
                     </h4>
@@ -187,7 +188,7 @@ const Soccer = () => {
                           return (
                             <tr key={standing.team.id}>
                               <td>
-                                <Link to={`/soccer/team/${standing.team.id}`}>
+                                <Link to={`/soccer/team/${standing.team.id}`} style={{textDecoration: '#ec6a00'}}>
                                   <h1>{standing.team.name}</h1>
                                 </Link>
                               </td>

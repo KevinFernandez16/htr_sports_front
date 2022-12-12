@@ -65,7 +65,7 @@ const Team = () => {
                     />{" "}
                   </td>
                   <td>
-                    <Link to={`/soccer/player/${players.id}`}>
+                    <Link to={`/soccer/player/${players.id}`} style={{color: '#ec6a00'}} >
                       {players.name}
                     </Link>
                   </td>

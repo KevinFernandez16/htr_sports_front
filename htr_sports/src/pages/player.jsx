@@ -1,6 +1,7 @@
 import { MainLayout } from "./mainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "../pages/css/soccerCss/player.css";
 
 const Player = () => {
   let { id } = useParams();
@@ -32,75 +33,86 @@ const Player = () => {
   }, [id]);
 
   return (
-    <div className="page">
+    <div className="PlayerPage">
       <MainLayout>
+        <div className="PlayerPhoto">
+          {playerInfo.photo && (
+            <img
+              src={playerInfo.photo}
+              alt="Player Logo"
+              style={{
+                width: 400,
+                height: 400,
+              }}
+            />
+          )}
+        </div>
+
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <h1 style={{fontSize: 'xxx-large' }}>Player's Information</h1>
+        </div>
+        <div className="PlayerInfo">
+          <strong>Name : {playerInfo.name}</strong>
+          <br></br>
+          <strong>Nationality: {playerInfo.nationality}</strong>
+          <br></br>
+          <strong>Age: {playerInfo.age}</strong>
+          <br></br>
+          <strong>Height: {playerInfo.height}</strong>
+          <br></br>
+          <strong>Weight: {playerInfo.weight}</strong>
+        </div>
+        <br></br>
+
         <div>
-          <div
-            style={{
-              alignContent: "center",
-              textAlignLast: "center",
-            }}
-          >
-            {playerInfo.photo && (
-              <img
-                src={playerInfo.photo}
-                alt="Player Logo"
-                style={{
-                  width: 400,
-                  height: 400,
-                }}
-              />
-            )}
-          </div>
-          <div
-            style={{
-              textAlign: "center",
-            }}
-          >
-            <h1>Player's Information</h1>
-            <p>{playerInfo.name}</p>
-            <p>Nationality: {playerInfo.nationality}</p>
-            <p>Age: {playerInfo.age}</p>
-            <p>Height: {playerInfo.height}</p>
-            <p>Weight: {playerInfo.weight}</p>
-          </div>
-          <div>
-            <h2> Statistics </h2>
-            <div>
-              {playerStats.length > 0 &&
-                playerStats.map((playerStats) => {
-                  return (
-                    <div key="playerID">
-                      <div>
-                        {playerStats.league.logo && (
-                          <img
-                            src={playerStats.league.logo}
-                            alt="League Logo"
-                            style={{
-                              width: 175,
-                              height: 175
-                            }}
-                          />
-                        )}
-                      </div>
-                      <h3>Competion: {playerStats.league.name}</h3>
-                      <div>
-                        <p>Position : {playerStats.games.position}</p>
-                        <p>Appearences : {playerStats.games.appearences}</p>
-                        <p>Total Minutes : {playerStats.games.minutes}</p>
-                        <p>Goals Scored: {playerStats.goals.total}</p>
-                        <p>Assists : {playerStats.goals.assists}</p>
-                        <p>Goals Conceded : {playerStats.goals.conceded}</p>
-                        <p>Saves : {playerStats.goals.conceded}</p>
-                        <p>Yellow Cards : {playerStats.cards.yellow}</p>
-                        <p>Red Cards : {playerStats.cards.red}</p>
-                        <br></br>
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
+          <h2 style={{fontSize: 'xxx-large', color:'#ec6a00'}} > Statistics </h2>
+        </div>
+
+        <div className="PlayerTable">
+          <table >
+            <tr>
+              <th>Competition Logo</th>
+              <th>Competition Name</th>
+              <th>Position</th>
+              <th>Appearances</th>
+              <th>Total Minutes Played</th>
+              <th>Goals Scored</th>
+              <th>Assists</th>
+              <th>Yellow Cards </th>
+              <th>Red Cards</th>
+            </tr>
+            {playerStats.length > 0 &&
+              playerStats.map((playerStats) => {
+                return (
+                  <tr>
+                    <td>
+                      {playerStats.league.logo && (
+                        <img
+                          src={playerStats.league.logo}
+                          alt="League Logo"
+                          style={{
+                            width: 175,
+                            height: 175,
+                          }}
+                        />
+                      )}
+                    </td>
+                    <td>{playerStats.league.name}</td>
+                    <td>{playerStats.games.position}</td>
+                    <td>{playerStats.games.appearences}</td>
+                    <td>{playerStats.games.minutes}</td>
+                    <td>{playerStats.goals.total}</td>
+                    <td>{playerStats.goals.assists}</td>
+                    <td>{playerStats.cards.yellow}</td>
+                    <td>{playerStats.cards.red}</td>
+                  </tr>
+                );
+              })}
+          </table>
         </div>
       </MainLayout>
     </div>
