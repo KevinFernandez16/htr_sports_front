@@ -19,11 +19,15 @@
 .Basketball-News{
     text-align: center;
     border: 5px solid rgb(0, 0, 0);
+    background-color: #171717;
+
 }
 
 .Basketball-Links{
     text-align: center;
     border: 5px solid rgb(0, 0, 0);
+    background-color: #171717;
+
 }
 
 .Basketball-Widget{
@@ -33,4 +37,12 @@
 
 .Texts{
     font-size: larger;
+}
+
+.basketball{
+    background-color: #171717;
+}
+
+.table{
+    background-color: #171717;
 }
