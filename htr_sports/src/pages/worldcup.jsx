@@ -41,8 +41,6 @@ const WorldCup = () => {
         </iframe>
       </div>
 
-
-
       {/* Div for ML Prediction Section */}
       <div style={wcPredictionSection.wcPredictionPage}>
         <div style={titleStyles.title_div}>
@@ -370,7 +368,6 @@ const wcPredictionSection = {
     lineHeight: "24px",
     paddingBottom: "2rem",
   }
-
 };
 
 const wcInnerTitle = {
