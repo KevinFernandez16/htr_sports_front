@@ -37,11 +37,16 @@ const Team = () => {
   return (
     <div>
       <MainLayout>
-        <div className="mainTeam">
+        <div className="TeamLogoHeader">
           {team.logo && <img src={team.logo} alt="Team Logo" />}
-          <p>{team.name} Players 2022/2023 </p>
+        </div>
 
-          <tbody className="id">
+        <div className="TeamNameText">
+          <h1>{team.name} Players 2022/2023 </h1>
+        </div>
+
+        <div className="mainTeam">
+          <tbody>
             <tr>
               <th>Player Image</th>
               <th>Player Name</th>
