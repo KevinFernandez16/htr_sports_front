@@ -260,7 +260,7 @@ const SignUpOverlay = ({ isOpen, onClose }) => {
                         <button class="signUp" type="Submit">Sign Up</button>
                         {/* <!-- Creating the Sign Up button for user's to submit all their entered information --> */}
                         <div class="having-an-account">
-                            <h8>Already have an account ? <a href="login.html">Login Here</a></h8>
+                            <h8>Already have an account ? Try to login instead!</h8>
                             {/* <!-- If a user has an account made already, they can log in throught our log in page  --> */}
                         </div>
                     </div>

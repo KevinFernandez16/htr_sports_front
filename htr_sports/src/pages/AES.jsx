@@ -255,7 +255,7 @@ function keySchedule(matrix,round){
 function initiateRound(matrix,roundKey){
 
   for(let step = 0;step<matrix.length;step++){
-    matrix[step] = subBytes(matrix[step]) //substitutes based on s-box
+    matrix[step] = subBytes(matrix[step]); //substitutes based on s-box
   }
 
   //flip the matrix so column turns to row
@@ -264,6 +264,7 @@ function initiateRound(matrix,roundKey){
     rotatedMatrix[step] = rotWord(rotatedMatrix[step],step)
   }
   matrix = rotate(rotatedMatrix)
+  console.log(matrix);
 
   for(let step = 0;step<matrix.length;step++){ //kept separate from substitution since gotta deal with rows now
     //mixColumns(matrix[step]);
