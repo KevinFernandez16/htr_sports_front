@@ -70,7 +70,7 @@
 
 }
 
-h2{
+.h2{
   color: #ec6a00;
   text-decoration: none;
   text-transform: uppercase;
@@ -79,7 +79,7 @@ h2{
   font-family: 'Black Ops One';
 }
 
-h3{
+.h3{
   color: #000000;
   text-decoration: none;
   text-transform: uppercase;
@@ -88,7 +88,7 @@ h3{
   font-family: 'Black Ops One';
 }
 
-p{
+.p{
   color: #ec6a00;
   text-decoration: none;
   text-transform: uppercase;
@@ -96,7 +96,7 @@ p{
   font-weight: 600;
 }
 
-a{
+.a{
   color: #000000;
   text-decoration: none;
   text-transform: uppercase;

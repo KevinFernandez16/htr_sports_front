@@ -67,8 +67,9 @@ async function calculate(){
 
 return(
 <MainLayout>
-  <div style={{ backgroundColor: "#1A1A1A" }}> 
-    <Box style ={{}}>
+  <div style={{ backgroundColor: "#1A1A1A" }}>
+    <div style={{ textAlign: "center"}}>
+    <Box >
       <Autocomplete>
         <input type = 'text' placeholder = 'Start' ref = {originRef} className = "fontclass"/>
       </Autocomplete>
@@ -79,19 +80,19 @@ return(
         <input type = 'text' placeholder = 'Destination' ref = {destinationRef} className = "fontclass"/>
       </Autocomplete>
     </Box>
-
-  <div class = "middle">
+    </div> 
+  <div class = "middle" style = {{textAlign: "center"}}>
   {/*Center Button */}
     <button className = "click fontclass button-right" onClick={() => setPosition({lat: 40.768538, lng: -73.964741})}>Back to Center</button>
   {/*Calculate Button */}
     <button className = "click fontclass" type = 'submit' onClick = {calculate}>Calculate</button>
   </div>
 
-  <div>
+  <div style = {{textAlign: "center", display: "block"}}>
     {/*Distance*/}
-    <text style={{ color: "#ec6a00" }} className = "fontclass">Distance: {distance}</text>
+    <text style={{ color: "#ec6a00"}} className = "fontclass">Distance: {distance}</text>
   </div>
-  <div>
+  <div style = {{textAlign: "center"}}>
     {/*Time*/}
     <text style={{ color: "#ec6a00" }} className = "fontclass">Amount of Time: {duration}</text>
   </div>
