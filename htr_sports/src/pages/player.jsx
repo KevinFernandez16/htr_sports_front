@@ -69,7 +69,7 @@ const Player = () => {
         <br></br>
 
         <div>
-          <h2 style={{fontSize: 'xxx-large', color:'#ec6a00'}} > Statistics </h2>
+          <h2 style={{fontSize: 'xxx-large', color:'#ec6a00', textAlign: "center", display:'block'}} > Statistics </h2>
         </div>
 
         <div className="PlayerTable">

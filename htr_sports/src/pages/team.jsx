@@ -35,9 +35,9 @@ const Team = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="MainTeamPage" style={styles.container}>
       <MainLayout>
-        <div className="TeamLogoHeader">
+        <div className="TeamLogoHeader" style={{ display: "block" }}>
           {team.logo && <img src={team.logo} alt="Team Logo" />}
         </div>
 
@@ -65,7 +65,10 @@ const Team = () => {
                     />{" "}
                   </td>
                   <td>
-                    <Link to={`/soccer/player/${players.id}`} style={{color: '#ec6a00'}} >
+                    <Link
+                      to={`/soccer/player/${players.id}`}
+                      style={{ color: "#ec6a00" }}
+                    >
                       {players.name}
                     </Link>
                   </td>
@@ -82,3 +85,14 @@ const Team = () => {
 };
 
 export default Team;
+
+const styles = {
+  container: {
+    backgroundImage: `url(https://www.colorhexa.com/171717.png)`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    width: "100vw",
+    height: "100vh",
+  },
+};

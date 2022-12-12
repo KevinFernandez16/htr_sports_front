@@ -56,7 +56,7 @@ const LeagueStats = () => {
   }, [id]);
 
   return (
-    <div id="doc3" class="yui-t7">
+    <div id="doc3" class="yui-t7" style={{backgroundcolor: '#171717'}}>
       <MainLayout>
         <div style={titleStyles.title_div}>
           <h1 className="FontClass" style={titleStyles.title}>

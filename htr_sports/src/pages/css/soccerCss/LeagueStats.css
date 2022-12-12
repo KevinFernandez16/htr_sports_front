@@ -147,6 +147,9 @@
         background:#171717;
         margin:0;
         padding:0;
+		display: table;
+		justify-content: center;
+		width: 100%;
         }
 
 #secondary{
@@ -164,3 +167,8 @@
 	margin:0;
 	padding:0;
 	}
+
+
+.StatsTable{
+	width: 100%;
+}
