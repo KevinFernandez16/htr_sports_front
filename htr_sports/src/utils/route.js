@@ -51,9 +51,9 @@ const Paths = {
         name: 'Forum',
         path: '/forum'
     },
-    findGame: {
-        name: 'Find Game',
-        path: '/findgame'
+    find: {
+        name: 'Find',
+        path: '/find'
     }
 
 

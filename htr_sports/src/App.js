@@ -7,7 +7,7 @@ import Basketball from './pages/basketball'
 import Fantasy from './pages/fantasy'
 import WorldCup from './pages/worldcup'
 import Forum from './pages/forum'
-import FindGame from './pages/findgame'
+import Find from './pages/find'
 import Paths from './utils/route'
 import WidgetPage from './pages/SoccerPages/WidgetPage'
 import React from "react";
@@ -37,7 +37,7 @@ function App() {
           {/* <Route path={Paths.fantasy.path} element={<Fantasy />} /> */}
           <Route path={Paths.worldCup.path} element={<WorldCup />} />
           <Route path={Paths.forum.path} element={<Forum />} />
-          <Route path={Paths.findGame.path} element={<FindGame />} />
+          <Route path={Paths.find.path} element={<Find />} />
           <Route path="*" element={<Error />} />
           {/* <Route path={Paths[1].path} element={<Soccer />} />
           <Route path={Paths[4].path} element={<Forum />} /> */}
