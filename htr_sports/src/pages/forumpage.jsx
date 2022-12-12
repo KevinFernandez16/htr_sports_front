@@ -74,8 +74,9 @@ function showReplies(key){
       for (var i = 0; i < arrayLength; i++) {
         const reply_div = document.createElement("div");
         const Replier = document.createElement("a");
+        Replier.setAttribute('class','a');
         const ReplyPost = document.createElement("p");
-
+        ReplyPost.setAttribute('class','p');
         Replier.setAttribute('href','/profile/'+snapshot.val()[i].CreatorID);
 
         Replier.innerHTML = snapshot.val()[i].Creator + ":";
@@ -191,7 +192,7 @@ async function readData(){
       const PostTitle = snapshot.val().Title;
       const PostBody = snapshot.val().Body;
       const PT = document.createElement("a");
-
+      PT.setAttribute('class','a');
       get(child(dbref, 'Users/'+key))
       .then((snapshot)=>{
         PT.innerHTML = snapshot.val().DisplayName + " Posted: " + PostTitle;
@@ -199,6 +200,7 @@ async function readData(){
       });
 
       const PB = document.createElement("p");
+      PB.setAttribute('class','p');
       PB.innerHTML = PostBody;
       post.appendChild(PT);
       post.appendChild(PB);
@@ -280,7 +282,7 @@ const Forum = () => {
           </div>
 
           <div id = "replies">
-            <h2>REPLIES</h2>
+            <h2 className="h2">REPLIES</h2>
             <p>_______________________________________________</p>
           </div>
         </div>
