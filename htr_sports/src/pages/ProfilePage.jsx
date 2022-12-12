@@ -116,6 +116,18 @@ function updateBanner(){
   })
 }
 
+function setName(){
+  const username = document.getElementById("username")
+  const dbref = ref(db)
+
+  get(child(dbref, "Users/" + page_id))
+  .then((snapshot) => {
+    if(snapshot.exists()){
+      username.innerHTML = snapshot.val().DisplayName;
+    }
+  })
+}
+
 async function getForum(){
   const dbref = ref(db);
   const dataArea = document.getElementById("postArea");
@@ -246,8 +258,9 @@ function uploadBanner(){
 }
 
 setTimeout(getForum, 1000);
-setTimeout(updateProfilePicture, 500);
-setTimeout(updateBanner, 500);
+setTimeout(updateProfilePicture, 200);
+setTimeout(updateBanner, 200);
+setTimeout(setName, 200);
 
 const Profile = () => {
   let { id } = useParams();
@@ -266,7 +279,7 @@ const Profile = () => {
       <div id = "uploadBannerSpot"></div>
       <div id = "signOut"></div>
       <br /><br /><br /><br />
-      <h1></h1>
+      <h1 id = "username"></h1>
       <br /><br />
       <label >Posted Forums:</label>
       <br /><br />

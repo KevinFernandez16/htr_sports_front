@@ -64,6 +64,13 @@ img {
   opacity: 1;
 }
 
+h1{
+  color: #ec6a00;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Black Ops One', cursive;
+}
+
 label {
   color: #ec6a00;
   text-decoration: none;

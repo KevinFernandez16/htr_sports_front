@@ -277,7 +277,7 @@ function signOutOf(){
   window.location.reload(false);
 }
 
-setTimeout(getForum, 1000);
+//setTimeout(getForum, 1000);
 
 const Profile = () => {
   return <div>
