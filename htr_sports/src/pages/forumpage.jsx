@@ -81,8 +81,12 @@ function showReplies(key){
         Replier.innerHTML = snapshot.val()[i].Creator + ":";
         ReplyPost.innerHTML = snapshot.val()[i].Message;
 
+        const Breaker = document.createElement("p");
+        Breaker.innerHTML = "_______________________________________________"
+
         reply_div.appendChild(Replier);
         reply_div.appendChild(ReplyPost);
+        reply_div.appendChild(Breaker);
 
         repliesArea.appendChild(reply_div);
         console.log(snapshot.val()[i]);

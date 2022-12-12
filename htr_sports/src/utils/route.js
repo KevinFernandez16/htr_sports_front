@@ -58,8 +58,11 @@ const Paths = {
     profile: {
       name: 'Profile Page',
       path: '/profile'
+    },
+    profileid: {
+      name: 'My Profile',
+      path: '/profile'
     }
-
 };
 
 export default Paths;
