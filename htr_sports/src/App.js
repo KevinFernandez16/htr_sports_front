@@ -1,5 +1,6 @@
 import Header from './components/header'
 import Team from './pages/team'
+import ForumPage from './pages/forumpage'
 import Player from './pages/player'
 import Home from './pages/home'
 import Soccer from './pages/soccer'
@@ -7,10 +8,11 @@ import Basketball from './pages/basketball'
 import Fantasy from './pages/fantasy'
 import WorldCup from './pages/worldcup'
 import Forum from './pages/forum'
-import Find from './pages/find'
+import FindGame from './pages/findgame'
 import Paths from './utils/route'
 import WidgetPage from './pages/SoccerPages/WidgetPage'
-import SoccerNews from './pages/SoccerPages/SoccerNews'
+import ProfilePage from './pages/Profile'
+import ProfilePageID from './pages/ProfilePage'
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -31,7 +33,6 @@ function App() {
           <Route path={Paths.home.path} element={<Home />} />
           <Route path={Paths.soccer.path} element={<Soccer />} />
           <Route path={`${Paths.soccer.path}/team/:id`} element={<Team />} />
-          <Route path={`${Paths.soccer.path}/SoccerNews`} element={<SoccerNews />} />
           <Route path={`${Paths.soccer.path}/player/:id`} element={<Player />} />
           <Route path={`${Paths.soccer.path}/Livescore`} element={<WidgetPage />} />
           <Route path={`${Paths.soccer.path}/LeagueStats/:id`} element={<LeagueStats />} />
@@ -39,7 +40,12 @@ function App() {
           {/* <Route path={Paths.fantasy.path} element={<Fantasy />} /> */}
           <Route path={Paths.worldCup.path} element={<WorldCup />} />
           <Route path={Paths.forum.path} element={<Forum />} />
-          <Route path={Paths.find.path} element={<Find />} />
+          <Route path={`${Paths.forum.path}/forumpage/:id`} element={<ForumPage />} />
+          <Route path={Paths.findGame.path} element={<FindGame />} />
+
+          <Route path={Paths.profile.path} element={<ProfilePage />} />
+          <Route path={`${Paths.profile.path}/:id`} element={<ProfilePageID />} />
+
           <Route path="*" element={<Error />} />
           {/* <Route path={Paths[1].path} element={<Soccer />} />
           <Route path={Paths[4].path} element={<Forum />} /> */}

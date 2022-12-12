@@ -1,7 +1,6 @@
-import { MainLayout } from "./mainLayout";
-//import {test} from "../index.js"
-import Carousel from "../components/Carousel";
-import "./Pages.css";
+import React, { useState, useEffect } from 'react';
+import Overlay from './overlay';
+import './sign-up.css';
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
@@ -28,36 +27,21 @@ const db = getDatabase();
 
 const auth = getAuth(app)
 
-var email = ""
-var password = ""
-
-const defaultData = {
-  DisplayName: "Anonymous",
-  Email: email,
-  Password: password,
-  ProfilePicture: "None",
-  BannerPicture: "None",
-  //TestData: "Default",
-  //TestData2: "Default2",
-  ShopData: {
-    Item1: false,
-    Item2: false
-  }
+function signOutOf(){
+  auth.signOut();
+  window.location.reload(false);
 }
 
-const removeData = {
-  TestData: true,
-  TestData2: true,
+const SignOut = () => {
+
+    return (
+        <li>
+            <div onClick={signOutOf} style={{ cursor: 'pointer' }}>
+                <a>signout</a>
+            </div>
+        </li>
+    )
+
 }
 
-const Home = () => {
-  return <div>
-    <MainLayout>
-      <div className="page">
-        <Carousel/>
-      </div>
-    </MainLayout>
-  </div>
-}
-
-export default Home;
+export default SignOut;

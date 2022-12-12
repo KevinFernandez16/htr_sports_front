@@ -2,6 +2,49 @@ import React, { useState, useEffect } from 'react';
 import Overlay from './overlay';
 import './log-in-sign-up.css';
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut  } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
+import { getStorage, ref as storageref, uploadBytes, getDownloadURL, deleteObject }  from "https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBoF3DW_pIDocCRPlrqFpUfxdXtCT7lpFQ",
+  authDomain: "htr-sports.firebaseapp.com",
+  databaseURL: "https://htr-sports-default-rtdb.firebaseio.com",
+  projectId: "htr-sports",
+  storageBucket: "htr-sports.appspot.com",
+  messagingSenderId: "119767757957",
+  appId: "1:119767757957:web:d9f4cfeed391dc8bbde5ec",
+  measurementId: "G-WEB0Z72L02"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+const db = getDatabase();
+
+const auth = getAuth(app)
+
+function logIn(email,password){
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log("Logged in to existing")
+    console.log(userCredential);
+    window.location.reload(false);
+    // ...
+  })
+  .catch((error) => {
+    const nerrorCode = error.code;
+    const nerrorMessage = error.message;
+    alert(nerrorCode+" : "+nerrorMessage);
+    console.log(nerrorCode+":"+nerrorMessage);
+  });
+}
+
 const LogInOverlay = ({ isOpen, onClose }) => {
 
     const initialValues = { username: "", password: "" }; //initial state
@@ -16,13 +59,20 @@ const LogInOverlay = ({ isOpen, onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFormErrors(validate(formValues));// pass form values when submitting
+        const errors = validate(formValues)
+        setFormErrors(errors);// pass form values when submitting
         setIsSubmit(true);
+
+        if (Object.keys(errors).length == 0){
+          logIn(formValues.username,formValues.password);
+        }else{
+          console.log('Has error');
+        }
     };
 
     useEffect(() => {
         console.log(formErrors);
-        if (Object.keys(formErrors).length === 0 && isSubmit) {// if isSubmit and no errors 
+        if (Object.keys(formErrors).length === 0 && isSubmit) {// if isSubmit and no errors
             console.log(formValues);
         }
     }, [formErrors])
@@ -32,7 +82,7 @@ const LogInOverlay = ({ isOpen, onClose }) => {
 
         //check for values
         if (!values.username) {
-            errors.username = "Username is required!";
+            errors.username = "Email is required!";
         }
         if (!values.password) {
             errors.password = "Password is required!";
@@ -61,7 +111,7 @@ const LogInOverlay = ({ isOpen, onClose }) => {
                                 onChange={handleChange}
                             />
                             <span></span>
-                            <label>Username</label>
+                            <label>Email</label>
 
                         </div>
                         <p> {formErrors.username} </p>
