@@ -1,4 +1,5 @@
 import Header from './components/header'
+import SoccerNews from './pages/SoccerPages/SoccerNews'
 import Team from './pages/team'
 import ForumPage from './pages/forumpage'
 import Player from './pages/player'
@@ -31,6 +32,7 @@ function App() {
         <Routes >
           <Route path={Paths.home.path} element={<Home />} />
           <Route path={Paths.soccer.path} element={<Soccer />} />
+          <Route path={`${Paths.soccer.path}/SoccerNews`} element={<SoccerNews />} />
           <Route path={`${Paths.soccer.path}/team/:id`} element={<Team />} />
           <Route path={`${Paths.soccer.path}/player/:id`} element={<Player />} />
           <Route path={`${Paths.soccer.path}/Livescore`} element={<WidgetPage />} />
